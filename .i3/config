@@ -53,19 +53,19 @@ set $barBindingText       #ffffff
 # WS1: Home                                                         #
 #      > For general usage                                          #
 # WS2: Browser                                                      #
-#        > Browser specific workspace                               #
+#      > Browser specific workspace                                 #
 # WS3: Development                                                  #
-#        > Software development workspace                           #
+#      > Software development workspace                             #
 # WS4: Term                                                         #
 #      > Workspace for terminal windows                             #
 # WS5: Visual                                                       #
-#       > Visual things such as Gimp and Photoshop                  #
+#      > Visual things such as Gimp and Photoshop                   #
 # WS6: Relax                                                        #
-#       > Out of jobs. Like chat, watching movie, reading book etc. #
+#      > Out of jobs. Like chat, watching movie, reading book etc.  #
 # WS7: Music                                                        #
-#       > Background music workspace                                #
+#      > Background music workspace                                 #
 # WS8: Game                                                         #
-#       > Game workspace                                            #
+#      > Game workspace                                             #
 #####################################################################
 set $WS1 "1:  Home"
 set $WS2 "2:  Browser"
