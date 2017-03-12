@@ -160,6 +160,13 @@ assign [class="jetbrains-pycharm"] $WS3
 assign [class="smplayer"] $WS6
 assign [class="Vlc"] $WS6
 
+#############################################
+#           Window Specific Layout          #
+# ----------------------------------------- #
+# Popup windows floating and move to center #
+#############################################
+for_window [window_role="pop-up"] floating enable,move absolute center
+
 #################################################################
 #                 Keyboard Action Bindings                      #
 # ------------------------------------------------------------- #
