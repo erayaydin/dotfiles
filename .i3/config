@@ -47,6 +47,8 @@ set $barBindingBorder     #2f343a
 set $barBindingBackground #900000
 set $barBindingText       #ffffff
 
+set $lockBackground #333333
+
 #####################################################################
 #                             Workspaces                            #
 # ----------------------------------------------------------------- #
@@ -277,7 +279,7 @@ mode "resize" {
 # Escape = Change mode to default (quit) #
 ##########################################
 mode "power" {
-    bindsym l exec --no-startup-id i3lock --color "$bg-color", mode "default"
+    bindsym l exec --no-startup-id i3lock --color "$lockBackground", mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
     bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
