@@ -332,7 +332,11 @@ bar {
 # Feh - Set wallpaper from ~/Pictures/Wallpapers/* #
 # Network Manager Applet - An applet for nm        #
 # Compton - Standalone composite manager           #
+# twmnd - twmn notification daemon                 #
+# aarchup - Arch Linux update checker              #
 ####################################################
 exec feh --randomize --bg-scale ~/Pictures/Wallpapers/*
 exec nm-applet
 exec_always compton -f
+exec --no-startup-id twmnd
+exec --no-startup-id aarchup
