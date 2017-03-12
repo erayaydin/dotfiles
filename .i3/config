@@ -166,6 +166,10 @@ assign [class="Vlc"] $WS6
 # Popup windows floating and move to center #
 #############################################
 for_window [window_role="pop-up"] floating enable,move absolute center
+for_window [window_role="Open Files"] floating enable sticky
+for_window [window_role="File Operation Progress"] floating enable sticky
+for_window [window_role="Save As"] floating enable
+for_window [instance="file_progress"]  sticky enable
 
 #################################################################
 #                 Keyboard Action Bindings                      #
