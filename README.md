@@ -3,7 +3,7 @@
 ## Overview
 
 | Window Manager | i3 |
-| Panel | i3status |
+| Panel | polybar |
 | Editor | Vim |
 | Shell | Zsh |
 | File Manager | ranger |

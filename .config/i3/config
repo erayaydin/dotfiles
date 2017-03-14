@@ -307,24 +307,24 @@ mode "power" {
 ##############
 # Bottom Bar #
 ##############
-bar {
-    status_command i3status
-    position bottom
-    modifier $mod
-    separator_symbol ":|:"
-    strip_workspace_numbers yes
-    colors {
-        background $barBackground
-        statusline $barStatus
-        separator $barSeparator
-
-        focused_workspace $barFocusBorder $barFocusBackground $barFocusText
-        active_workspace $barActiveBorder $barActiveBackground $barActiveText
-        inactive_workspace $barInactiveBorder $barInactiveBackground $barInactiveText
-        urgent_workspace $barUrgentBorder $barUrgentBackground $barUrgentText
-        binding_mode $barBindingBorder $barBindingBackground $barBindingText
-    }
-}
+#bar {
+#    status_command i3status
+#    position bottom
+#    modifier $mod
+#    separator_symbol ":|:"
+#    strip_workspace_numbers yes
+#    colors {
+#        background $barBackground
+#        statusline $barStatus
+#        separator $barSeparator
+#
+#        focused_workspace $barFocusBorder $barFocusBackground $barFocusText
+#        active_workspace $barActiveBorder $barActiveBackground $barActiveText
+#        inactive_workspace $barInactiveBorder $barInactiveBackground $barInactiveText
+#        urgent_workspace $barUrgentBorder $barUrgentBackground $barUrgentText
+#        binding_mode $barBindingBorder $barBindingBackground $barBindingText
+#    }
+#}
 
 ####################################################
 #                    Startup                       #
@@ -340,3 +340,4 @@ exec nm-applet
 exec_always compton -f
 exec --no-startup-id twmnd
 exec --no-startup-id aarchup
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
