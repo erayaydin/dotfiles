@@ -1,0 +1,19 @@
+set realname = "REALNAME"
+set from = "EMAILADDRESS"
+set use_from = yes
+set envelope_from = yes
+
+set smtp_url = "smtps://EMAILADDRESS@smtp.gmail.com:465/"
+set smtp_pass = "EMAILPASS"
+set imap_user = "EMAILADDRESS"
+set imap_pass = "EMAILPASSS"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
+
+bind index G imap-fetch-mail
+set editor = "nano"
+set charset = "utf-8"
+set record = ''
+
+set sort = reverse-date-received
