@@ -22,6 +22,7 @@ set $URGENTTEXT   #FFFFFF
 set $URGENTINDIC  #900000
 
 set $themeFont pango:DejaVu Sans Mono 10
+set $lockMessage "Eray-Arch LOCKED"
 
 set $barBackground #333333
 set $barStatus     #ffffff
@@ -132,6 +133,7 @@ hide_edge_borders both
 # DMenu:    $mod+d      #
 #########################
 bindsym $mod+Return exec terminator
+bindsym $mod+Shift+t exec xterm
 bindsym $mod+c exec chromium
 bindsym $mod+i exec firefox
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -139,18 +141,19 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #################################
 # Assign Workspaces for Windows #
 # ----------------------------- #
-# Steam -> WS8:Game             #
-# Phpstorm -> WS3:Development   #
-# Chromium -> WS2:Browser       #
+# Chromium   -> WS2:Browser     #
+# Pycharm    -> WS3:Development #
+# Phpstorm   -> WS3:Development #
+# Clion      -> WS3:Development #
 # Terminator -> WS4:Filezilla   #
-# Clion -> WS3:Development      #
-# Photoshop -> WS5:Visual       #
-# Pycharm -> WS3:Development    #
-# SMPlayer -> WS6:Relax         #
-# Vlc -> WS6: Relax             #
+# Photoshop  -> WS5:Visual      #
+# SMPlayer   -> WS6:Relax       #
+# Vlc        -> WS6:Relax       #
+# Steam      -> WS8:Game        #
 #################################
 assign [class="Steam"] $WS8
 assign [class="Phpstorm"] $WS3
+assign [class="jetbrains-phpstorm"] $WS3
 assign [class="Chromium"] $WS2
 assign [class="Terminator"] $WS4
 assign [class="Filezilla"] $WS1
@@ -159,6 +162,8 @@ assign [class="Photoshop.exe"] $WS5
 assign [class="jetbrains-pycharm"] $WS3
 assign [class="smplayer"] $WS6
 assign [class="Vlc"] $WS6
+assign [class="Battle.net.exe"] $WS8
+assign [class="jetbrains-webstorm"] $WS3
 
 #############################################
 #           Window Specific Layout          #
@@ -169,47 +174,48 @@ for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [window_role="Open Files"] floating enable sticky
 for_window [window_role="File Operation Progress"] floating enable sticky
 for_window [window_role="Save As"] floating enable
+for_window [class="Steam"] floating enable
 for_window [instance="file_progress"]  sticky enable
 
-#################################################################
-#                 Keyboard Action Bindings                      #
-# ------------------------------------------------------------- #
-# $mod+Shift+Q = Kill Focused Window                            #
-# $mod+Left = Focus on left window                              #
-# $mod+Down = Focus on down window                              #
-# $mod+Up = Focus on up window                                  #
-# $mod+Right = Focus on right window                            #
-# $mod+Shift+Left = Move focused window to left                 #
-# $mod+Shift+Down = Move focused window to down                 #
-# $mod+Shift+Up = Move focused window to up                     #
-# $mod+Shift+Right = Move focused window to right               #
-# $mod+H = Split horizontal orientation                         #
-# $mod+V = Split vertical orientation                           #
-# $mod+F = Toggle fullscreen on focused window                  #
-# $mod+S = Change current layout to stacking                    #
-# $mod+W = Change current layout to tabbed                      #
-# $mod+E = Change current layout to split                       #
-# $mod+Shift+Space = Change floating for focused window         #
-# $mod+Space = Change focus between tiling and floating windows #
-# $mod+P = Focus to parent window                               #
-# $mod+J = Focus to child window                                #
-# $mod+Shift+V = Mute/Unmute audio capture device (microphone)  #
-# XF86AudioRaiseVolume = Increase volume                        #
-# XF86AudioLowerVolume = Decrease volume                        #
-# XF86AudioMute = Toggle mute                                   #
-# XF86AudioPlay = Play/Pause for player                         #
-# XF86AudioNext = Go to next track for player                   #
-# XF86AudioPrev = Go to prev track for player                   #
-# $mod+PrtScr = Take a screenshot with `maim`                   #
-# $mod+1..8 = Change workspace                                  #
-# $mod+Shift+1..8 = Move container to another workspace         #
-# $mod+Shift+C = Reload i3 configuration file                   #
-# $mod+Shift+R = Restart i3                                     #
-# $mod+R = Switch to 'Resize' mode                              #
-# $mod+Shift+E = Switch to 'Power' mode                         #
-# $mod+Shift+Minus = Move focused window to scratchpad          #
-# $mod+Minus = Show first window from scratchpad                #
-#################################################################
+###########################################################################
+#                        Keyboard Action Bindings                         #
+# ----------------------------------------------------------------------- #
+# $mod+Shift+Q         = Kill Focused Window                              #
+# $mod+Left            = Focus on left window                             #
+# $mod+Down            = Focus on down window                             #
+# $mod+Up              = Focus on up window                               #
+# $mod+Right           = Focus on right window                            #
+# $mod+Shift+Left      = Move focused window to left                      #
+# $mod+Shift+Down      = Move focused window to down                      #
+# $mod+Shift+Up        = Move focused window to up                        #
+# $mod+Shift+Right     = Move focused window to right                     #
+# $mod+H               = Split horizontal orientation                     #
+# $mod+V               = Split vertical orientation                       #
+# $mod+F               = Toggle fullscreen on focused window              #
+# $mod+S               = Change current layout to stacking                #
+# $mod+W               = Change current layout to tabbed                  #
+# $mod+E               = Change current layout to split                   #
+# $mod+Shift+Space     = Change floating for focused window               #
+# $mod+Space           = Change focus between tiling and floating windows #
+# $mod+P               = Focus to parent window                           #
+# $mod+J               = Focus to child window                            #
+# $mod+Shift+V         = Mute/Unmute audio capture device (microphone)    #
+# XF86AudioRaiseVolume = Increase volume                                  #
+# XF86AudioLowerVolume = Decrease volume                                  #
+# XF86AudioMute        = Toggle mute                                      #
+# XF86AudioPlay        = Play/Pause for player                            #
+# XF86AudioNext        = Go to next track for player                      #
+# XF86AudioPrev        = Go to prev track for player                      #
+# $mod+PrtScr          = Take a screenshot with `maim`                    #
+# $mod+1..8            = Change workspace                                 #
+# $mod+Shift+1..8      = Move container to another workspace              #
+# $mod+Shift+C         = Reload i3 configuration file                     #
+# $mod+Shift+R         = Restart i3                                       #
+# $mod+R               = Switch to 'Resize' mode                          #
+# $mod+Shift+E         = Switch to 'Power' mode                           #
+# $mod+Shift+Minus     = Move focused window to scratchpad                #
+# $mod+Minus           = Show first window from scratchpad                #
+###########################################################################
 bindsym $mod+Shift+q kill
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -236,6 +242,8 @@ bindsym $mod+Shift+v exec --no-startup-id "amixer set Capture toggle"
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 5
 bindsym $mod+Print exec maim --select ~/Pictures/Screenshoots/$(date +%F-%T).png
 bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
@@ -259,16 +267,17 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+e mode "power"
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+s sticky toggle
 
 ##########################################
 #           Resize Mode ($mod+R)         #
 # -------------------------------------- #
 # Desc: Resize the focused window        #
 #                                        #
-# Left = Shrink width                    #
-# Down = Grow height                     #
-# Up = Shrink height                     #
-# Right = Grow width                     #
+# Left   = Shrink width                  #
+# Down   = Grow height                   #
+# Up     = Shrink height                 #
+# Right  = Grow width                    #
 # Escape = Change mode to default (quit) #
 ##########################################
 mode "resize" {
@@ -294,7 +303,10 @@ mode "resize" {
 # Escape = Change mode to default (quit) #
 ##########################################
 mode "power" {
-    bindsym l exec --no-startup-id i3lock --color "$lockBackground", mode "default"
+# i3Lock
+#    bindsym l exec --no-startup-id i3lock --color "$lockBackground", mode "default"
+# i3Lock-Fancy
+    bindsym l exec --no-startup-id i3lock-fancy -pt $lockMessage -- scrot -z, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
     bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
@@ -304,6 +316,7 @@ mode "power" {
     bindsym Escape mode "default"
 }
 
+# i3status bar users should uncomment
 ##############
 # Bottom Bar #
 ##############
@@ -332,12 +345,12 @@ mode "power" {
 # Feh - Set wallpaper from ~/Pictures/Wallpapers/* #
 # Network Manager Applet - An applet for nm        #
 # Compton - Standalone composite manager           #
-# twmnd - twmn notification daemon                 #
-# aarchup - Arch Linux update checker              #
+# twmnd   - twmn notification daemon               #
+# aarchup - Arch Linux update checker (uncomment)  #
 ####################################################
 exec feh --randomize --bg-scale ~/Pictures/Wallpapers/*
 exec nm-applet
-exec_always compton -f
+exec_always compton --config ~/.config/compton.conf
 exec --no-startup-id twmnd
-exec --no-startup-id aarchup
+#exec --no-startup-id aarchup
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
