@@ -44,7 +44,7 @@ set exrc
 " - vim.cpp
 " - CSS Color Preview
 " Manipluate
-" - Easy Motion
+" - Easymotion
 " Snippet
 " - UltiSnips
 " Status Bar
@@ -130,7 +130,7 @@ Plugin 'bling/vim-airline'
 
 " Gruvbox - Theme
 " ---------------
-" Github: 'https://github.com/morhetz/gruvbox
+" Github: https://github.com/morhetz/gruvbox
 Plugin 'morhetz/gruvbox'
 
 call vundle#end()
