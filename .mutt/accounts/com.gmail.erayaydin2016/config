@@ -1,0 +1,45 @@
+# Reset
+
+source "~/.mutt/scripts/reset"
+
+# Email Configuration
+set realname = "Eray Aydın"
+set from = "erayaydin2016@gmail.com"
+
+set imap_idle = yes
+set imap_keepalive = 60
+set imap_list_subscribed = yes
+set imap_passive = no
+set imap_user = "erayaydin2016@gmail.com"
+set imap_pass = `pass mutt/erayaydin2016@gmail.com`
+#set smtp_authenticators = ""
+set smtp_url = "smtps://erayaydin2016@gmail.com@smtp.gmail.com:465/"
+set smtp_pass = `pass mutt/erayaydin2016@gmail.com`
+
+# Security
+set ssl_force_tls = yes
+set ssl_starttls = yes
+set ssl_use_sslv3 = no
+set ssl_use_tlsv1 = no
+set ssl_use_tlsv1_1 = no
+set ssl_use_tlsv1_2 = yes
+set ssl_verify_dates = yes
+set ssl_verify_host = yes
+
+# Folders
+set folder = "imaps://imap.gmail.com:993/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+#set trash = ""
+#set record = ""
+#mailboxes +INBOX ....
+
+# Certificates
+set certificate_file = "~/.mutt/accounts/com.gmail.erayaydin2016/certificates"
+
+# Cache
+set header_cache = "~/.mutt/accounts/com.gmail.erayaydin2016/cache/headers"
+set message_cachedir = "~/.mutt/accounts/com.gmail.erayaydin2016/cache/bodies"
+
+# Signature
+set signature = "~/.mutt/signatures/personal"

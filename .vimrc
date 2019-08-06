@@ -1,170 +1,144 @@
 " Eray's VimRC
 " ============
-" Maintainer:  Eray Aydın <aydineray@mail.com>
-" Init:	       2017-10-20
-" Version:     1.0 (baby)
-" Last Change: 2018-02-01
+"
+" Maintainer: Eray Aydın <er@yayd.in>
+" Init: 2017-10-20
+" Version: 2.0 (teen)
+" Last Change: 2018-12-04
 
-" /-------------------------/
-" /        INDEX OF         /
-" /-------------------------/
-" / 1. BOOT                 /
-" / 2. PLUGINS              /
-" / 3. GENERAL SETTINGS     /
-" / 4. PLUGIN CONFIGURATION /
-" / 5. BACK TO NORMAL       /
-" ///////////////////////////
+" /----------/
+" / INDEX OF /
+" /----------/
+" / 1. BOOT  /
+" ////////////
 
 " ===========
 " = 1. BOOT =
 " ===========
+
+" Set compatibility to Vim only
 set nocompatible
+
+" Helps for plugins load correctly, we turned on again (below)
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-set exrc
 
 " ==============
 " = 2. PLUGINS =
 " ==============
-" Plugin Manager
-" - Vundle
-" File Explorer
-" - The NERDTree
-" Completion
-" - YouCompleteMe
-" Git
-" - vim-gitgutter
-" - fugitive
-" Syntax
-" - Synastic
-" - surround
-" - SCSS Syntax
-" - YAJS
-" - Jinja Syntax
-" - vim.cpp
-" - CSS Color Preview
-" Manipluate
-" - Easymotion
-" Snippet
-" - UltiSnips
-" Status Bar
-" - Airline
-" Theme
-" - Gruvbox
-call vundle#begin()
 
-" Vundle - Plugin Manager
-" -----------------------
-" Github: https://github.com/VundleVim/Vundle.vim
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plug')
 
-" The NERDTree - File System Explorer Plugin
-" ------------------------------------------
-" Github: https://github.com/scrooloose/nerdtree 
-Plugin 'scrooloose/nerdtree'
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install'}
 
-" YouCompleteMe - Code-Completion Engine
-" --------------------------------------
-" Github: https://github.com/Valloric/YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
-
-" vim-gitgutter - Git Diff in the Gutter
-" --------------------------------------
-" Github: https://github.com/airblade/vim-gitgutter
-Plugin 'airblade/vim-gitgutter'
-
-" fugitive - Git Wrapper
-" ----------------------
-" Github: https://github.com/tpope/vim-fugitive
-Plugin 'tpope/vim-fugitive'
-
-" Syntastic - Syntax Checking Plugin
-" ----------------------------------
-" Github: https://github.com/vim-syntastic/syntastic
-Plugin 'scrooloose/syntastic'
-
-" surround - Surrounding Plugin
-" -----------------------------
-" Github: https://github.com/tpope/vim-surround
-Plugin 'tpope/vim-surround'
-
-" SCSS Syntax
-" -----------
-" Github: https://github.com/cakebaker/scss-syntax.vim
-Plugin 'cakebaker/scss-syntax.vim'
-
-" YAJS - Javascript Syntax
+" Neodark - Color Schema
 " ------------------------
-" Github: https://github.com/othree/yajs.vim
-Plugin 'othree/yajs.vim'
+"  Github: https://github.com/KeitaNakamura/neodark.vim
+Plug 'KeitaNakamura/neodark.vim'
 
-" Jinja Syntax
+" Lightline - Configurable Statusline
+" -----------------------------------
+"  Github: https://github.com/itchyny/lightline.vim
+Plug 'itchyny/lightline.vim'
+
+Plug 'ajh17/VimCompletesMe'
+" Plug 'davidhalter/jedi-vim'
+
+" Vim Multiple Cursors
+" --------------------
+"  Github: https://github.com/terryma/vim-multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
+
+" NERDTree - Tree Explorer
+" ------------------------
+"  Github: https://github.com/scrooloose/nerdtree
+Plug 'scrooloose/nerdtree'
+
+" Editorconfig
 " ------------
-" Github: https://github.com/mitsuhiko/vim-jinja
-Plugin 'mitsuhiko/vim-jinja'
+"  Github: https://github.com/editorconfig/editorconfig-vim
+Plug 'editorconfig/editorconfig-vim'
 
-" vim.cpp - C++ Syntax
-" --------------------
-" Github: https://github.com/octol/vim-cpp-enhanced-highlight
-Plugin 'octol/vim-cpp-enhanced-highlight'
+" Emmet
+" -----
+"  Github: https://github.com/mattn/emmet-vim
+Plug 'mattn/emmet-vim'
 
-" CSS Color Preview
-" -----------------
-" Github: https://github.com/ap/vim-css-color
-Plugin 'ap/vim-css-color'
+" GitGutter - Show git diff in the gutter
+" ---------------------------------------
+"  Github: https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'
 
-" Easy Motion - Search and Move
-" -----------------------------
-" Github: https://github.com/easymotion/vim-easymotion
-Plugin 'easymotion/vim-easymotion'
+" Syntastic - Syntax Checker
+" --------------------------
+"  Github: https://github.com/vim-syntastic/syntastic
+Plug 'vim-syntastic/syntastic'
 
-" UltiSnips - Snippets
-" --------------------
-" Github: https://github.com/SirVer/ultisnips
-Plugin 'SirVer/ultisnips'
+Plug 'shawncplus/phpcomplete.vim'
 
-" Airline - Status Bar
-" ----------
-" Github: https://github.com/vim-airline/vim-airline
-Plugin 'bling/vim-airline'
+Plug 'blindFS/vim-taskwarrior'
 
-" Gruvbox - Theme
-" ---------------
-" Github: https://github.com/morhetz/gruvbox
-Plugin 'morhetz/gruvbox'
+Plug 'posva/vim-vue'
 
-call vundle#end()
-filetype plugin indent on
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'noahfrederick/vim-composer' 
+Plug 'noahfrederick/vim-laravel'
+
+
+call plug#end()
 
 " =======================
 " = 3. GENERAL SETTINGS =
 " =======================
 
-colorscheme gruvbox
-set guifont=Monospace\ 10
-set fillchars+=vert:\$
+" Syntax Highlighting
 syntax enable
-set background=dark
+
+" Enable ruler
 set ruler
+
+" Hide buffer when abandoned
 set hidden
+
+" Show line numbers
 set number
+
+" Last window will have a status line ALWAYS
 set laststatus=2
+
+" Smart auto indentation
 set smartindent
-set st=4 sw=4 et
+
+" For Amiga; use shell only for ':sh' command
+set st=4
+
+" Use spaces for tab
+set et
+
+" Use 4 spaces for indent
 set shiftwidth=4
+
+" Number of spaces that a Tab in the file counts for
 set tabstop=4
-let &colorcolumn="80"
-:set guioptions-=m " remove menubar
-:set guioptions-=T " remove toolbar
-:set guioptions-=r " remove right-scrollbar
-:set guioptions-=L " remove left-scrollbar
-:set lines=999 columns=999
+
+" Tallest window possible
+set lines=999 columns=999
+
+" Colorscheme
+colorscheme neodark
+
+" Try to use colors that look good on a dark background
+set background=dark
+
+" ===========
+" = 4. Path =
+" ===========
 
 " Base Directory
 " --------------
 "  Description: Create base directory if its not exists
 if isdirectory('~/.temp') == 0
-	:silent !mkdir -p ~/.temp > /dev/null 2>&1
+	:silent !mkdir -p ~/.temp/vim > /dev/null 2>&1
 endif
 
 " Backup
@@ -175,13 +149,12 @@ if exists("+backup")
 		:silent !mkdir -p ~/.temp/vim/backup > /dev/null 2>&1
 	endif
 	set backupdir=~/.temp/vim/backup
-	set backup
 endif
+set backup
 
 " Swap
 " ----
-"  Description: This allows you to set less annoying directory for creating
-"  swap files.
+"  Description: This allows you to set less annoying directory for swap files.
 if exists("+directory")
 	if isdirectory('~/.temp/vim/swap') == 0
 		:silent !mkdir -p ~/.temp/vim/swap > /dev/null 2>&1
@@ -192,69 +165,51 @@ endif
 " Undofile
 " --------
 "  Version: 7.3+
-"  Description: This allows you to use 'undos' after exiting and restarting
+"  Description: Allows you to use 'undos' after exiting and restarting
 if has("persistent_undo")
-	" Checking directory exists...
 	if isdirectory('~/.temp/vim/undo') == 0
 		:silent !mkdir -p ~/.temp/vim/undo > /dev/null 2>&1
 	endif
-
-	" Set undo option
 	set undodir=~/.temp/vim/undo//
 	set undofile
 endif
 
-" Tabs
-" ====
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <silent> <C-S-Left> :execute 'silent! tabmove '.(tabpagenr()-2)<CR>
-nnoremap <silent> <C-S-Right> :execute 'silent! tabmove '.(tabpagenr()+1)<CR>
-let notabs=0
-nnoremap <silent> <F8> :let notabs=!notabs<Bar>:if notabs<Bar>:tabo<Bar>:else<Bar>:tab ball<Bar>:tabn<Bar>:endif<CR>
-cabbrev tabv tab sview +setlocal\ nomodifiable
-
 " ===========================
-" = 4. PLUGIN CONFIGURATION =
+" = 5. PLUGIN CUSTOMIZATION =
 " ===========================
 
-" NERDTree
-" --------
-let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', 'a-zA-Z*egg[a-zA-Z]$', '.DS_Store']
+" -- NERDTree --
+
+" NERDTree open with Ctrl+O
+map <C-o> :NERDTreeToggle<CR>
+
+" Open NERDTree when starting vim with folder
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" Close NERDTree when only window left is it
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Show hidden files in NERDTree (You can toggle with Ctrl+I)
 let NERDTreeShowHidden=1
-let g:NERDTreeWinPos="left"
-let g:NERDTreeDirArrows=0
-map <C-t> :NERDTreeToggle<CR>
 
-" Syntastic
-" ---------
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
+" -- Emmet --
+
+" Support emmet for only HTML and CSS files
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+" -- Syntastic --
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_javascript_mri_args="--config=$HOME/.jshintrc"
-let g:syntastic_python_checkers=['pylint', 'flake8', 'pep8', 'pyflakes', 'python']
-let g:syntastic_yaml_checkers=['jsyaml']
-let g:syntastic_html_tidy_exec='tidy5'
 
-" Snippets
-" --------
-let g:UltiSnipsExpandTrigger="<A-ENTER>"
-let g:UltiSnipsJumpForwardTrigger="<A-ENTER>"
-let g:UltiSnipsJumpBackwardTrigger="<A-BACKSPACE>"
-let g:UltiSnipsEditSplit="vertical"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
-" Easymotion
-" ----------
-let g:EasyMotion_do_mapping=0
-let g:EasyMotion_smartcase=1
-nmap f <Plug>(easymotion-s)
-
-" =====================
-" = 5. BACK TO NORMAL =
-" =====================
+" =============
+" = 5. Ending =
+" =============
 set secure
