@@ -21,8 +21,9 @@
 
 ## i3
 
-VCS Location: `/i3`
-Config Target Location: `~/.config/i3`
+```
+ln -sf ~/.dotfiles/i3 ~/.config/i3
+```
 
 Window Theme:
 
