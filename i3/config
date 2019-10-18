@@ -1,6 +1,21 @@
+#########################
+# i3-gaps Configuration #
+#########################
+
+# Hide all window title bars
+for_window [class=".*"] border pixel 0
+
+# Smart Gaps
+smart_gaps on
+
+# Set outer and inner gaps
+gaps outer 0
+gaps inner 20
+
 #######################
 # Theme Configuration #
 #######################
+
 set $FOCUSBORDER #0088CC
 set $FOCUSBACK   #0088CC
 set $FOCUSTEXT   #FFFFFF
@@ -22,7 +37,6 @@ set $URGENTTEXT   #FFFFFF
 set $URGENTINDIC  #900000
 
 set $themeFont pango:DejaVu Sans Mono 10
-set $lockMessage "Eray-Arch LOCKED"
 
 set $barBackground #333333
 set $barStatus     #ffffff
@@ -48,8 +62,6 @@ set $barBindingBorder     #2f343a
 set $barBindingBackground #900000
 set $barBindingText       #ffffff
 
-set $lockBackground #333333
-
 #####################################################################
 #                             Workspaces                            #
 # ----------------------------------------------------------------- #
@@ -70,14 +82,14 @@ set $lockBackground #333333
 # WS8: Game                                                         #
 #      > Game workspace                                             #
 #####################################################################
-set $WS1 "1:  Home"
-set $WS2 "2:  Browser"
-set $WS3 "3:  Development"
-set $WS4 "4:  Term"
-set $WS5 "5:  Visual"
-set $WS6 "6:  Relax"
-set $WS7 "7:  Music"
-set $WS8 "8:  Game"
+set $WS1 "1: "
+set $WS2 "2: "
+set $WS3 "3: "
+set $WS4 "4: "
+set $WS5 "5: "
+set $WS6 "6: "
+set $WS7 "7: "
+set $WS8 "8: "
 
 #################
 # Windows Color #
@@ -132,11 +144,11 @@ hide_edge_borders both
 # Firefox:  $mod+i      #
 # DMenu:    $mod+d      #
 #########################
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+t exec xterm
 bindsym $mod+c exec chromium
 bindsym $mod+i exec firefox
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun#run#ssh -show combi
 
 #################################
 # Assign Workspaces for Windows #
@@ -153,9 +165,11 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #################################
 assign [class="Steam"] $WS8
 assign [class="Phpstorm"] $WS3
+assign [class="jetbrains-studio"] $WS3
 assign [class="jetbrains-phpstorm"] $WS3
 assign [class="Chromium"] $WS2
 assign [class="Terminator"] $WS4
+assign [class="URxvt"] $WS4
 assign [class="Filezilla"] $WS1
 assign [class="jetbrains-clion"] $WS3
 assign [class="Photoshop.exe"] $WS5
@@ -244,7 +258,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessDown exec light -U 5
 bindsym XF86MonBrightnessUp exec light -A 5
-bindsym $mod+Print exec maim --select ~/Pictures/Screenshoots/$(date +%F-%T).png
+bindsym $mod+Print exec maim --select ~/Pictures/Screenshots/$(date +%F-%T).png
 bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
 bindsym $mod+3 workspace $WS3
@@ -303,10 +317,7 @@ mode "resize" {
 # Escape = Change mode to default (quit) #
 ##########################################
 mode "power" {
-# i3Lock
-#    bindsym l exec --no-startup-id i3lock --color "$lockBackground", mode "default"
-# i3Lock-Fancy
-    bindsym l exec --no-startup-id i3lock-fancy -pt $lockMessage -- scrot -z, mode "default"
+    bindsym l exec --no-startup-id i3lock-color, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
     bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
@@ -348,9 +359,7 @@ mode "power" {
 # twmnd   - twmn notification daemon               #
 # aarchup - Arch Linux update checker (uncomment)  #
 ####################################################
-exec feh --randomize --bg-scale ~/Pictures/Wallpapers/*
-exec nm-applet
-exec_always compton --config ~/.config/compton.conf
-exec --no-startup-id twmnd
-#exec --no-startup-id aarchup
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpapers/*
+exec --no-startup-id nm-applet
+exec --no-startup-id compton --config ~/.config/compton.conf
+exec_always --no-startup-id ~/.config/polybar/polybar-launch.sh

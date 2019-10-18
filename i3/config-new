@@ -1,0 +1,392 @@
+# Hide all window title bars
+for_window [class=".*"] border pixel 0
+
+# Smart Gaps
+smart_gaps on
+
+gaps outer 0
+gaps inner 20
+
+#######################
+# Theme Configuration #
+#######################
+
+set $FOCUSBORDER #0088CC
+set $FOCUSBACK   #0088CC
+set $FOCUSTEXT   #FFFFFF
+set $FOCUSINDIC  #DDDDDD
+
+set $INACTIVEBORDER #333333
+set $INACTIVEBACK   #333333
+set $INACTIVETEXT   #888888
+set $INACTIVEINDIC  #292d2e
+
+set $UNFOCUSBORDER #333333
+set $UNFOCUSBACK   #333333
+set $UNFOCUSTEXT   #888888
+set $UNFOCUSINDIC  #292d2e
+
+set $URGENTBORDER #2f343a
+set $URGENTBACK   #900000
+set $URGENTTEXT   #FFFFFF
+set $URGENTINDIC  #900000
+
+set $themeFont pango:DejaVu Sans Mono 10
+set $lockMessage "Eray-Arch LOCKED"
+
+set $barBackground #333333
+set $barStatus     #ffffff
+set $barSeparator  #08c08c
+
+set $barFocusBorder     #4c7899
+set $barFocusBackground #285577
+set $barFocusText       #ffffff
+
+set $barActiveBorder     #333333
+set $barActiveBackground #5f676a
+set $barActiveText       #ffffff
+
+set $barInactiveBorder     #333333
+set $barInactiveBackground #222222
+set $barInactiveText       #888888
+
+set $barUrgentBorder     #2f343a
+set $barUrgentBackground #900000
+set $barUrgentText       #ffffff
+
+set $barBindingBorder     #2f343a
+set $barBindingBackground #900000
+set $barBindingText       #ffffff
+
+set $lockBackground #333333
+
+#####################################################################
+#                             Workspaces                            #
+# ----------------------------------------------------------------- #
+# WS1: Home                                                         #
+#      > For general usage                                          #
+# WS2: Browser                                                      #
+#      > Browser specific workspace                                 #
+# WS3: Development                                                  #
+#      > Software development workspace                             #
+# WS4: Term                                                         #
+#      > Workspace for terminal windows                             #
+# WS5: Visual                                                       #
+#      > Visual things such as Gimp and Photoshop                   #
+# WS6: Relax                                                        #
+#      > Out of jobs. Like chat, watching movie, reading book etc.  #
+# WS7: Music                                                        #
+#      > Background music workspace                                 #
+# WS8: Game                                                         #
+#      > Game workspace                                             #
+#####################################################################
+set $WS1 "1: "
+set $WS2 "2: "
+set $WS3 "3: "
+set $WS4 "4: "
+set $WS5 "5: "
+set $WS6 "6: "
+set $WS7 "7: "
+set $WS8 "8: "
+
+#################
+# Windows Color #
+#################
+client.focused          $FOCUSBORDER    $FOCUSBACK    $FOCUSTEXT    $FOCUSINDIC
+client.unfocused        $UNFOCUSBORDER  $UNFOCUSBACK  $UNFOCUSTEXT  $UNFOCUSINDIC
+client.focused_inactive $INACTIVEBORDER $INACTIVEBACK $INACTIVETEXT $INACTIVEINDIC
+client.urgent           $URGENTBORDER   $URGENTBACK   $URGENTTEXT   $URGENTINDIC
+
+########################
+# Set Mod Key as Start #
+########################
+set $mod Mod4
+
+############
+# Set Font #
+############
+font $themeFont
+
+######################################
+#       Drag Floating Windows        #
+# Use Mouse+$mod to drag floating    #
+# windows to their wanted position   #
+######################################
+floating_modifier $mod
+
+###################
+# No Follow Mouse #
+###################
+focus_follows_mouse no
+
+#######################
+# Default Orientation #
+#######################
+default_orientation auto
+
+############################
+# Default Workspace Layout #
+############################
+workspace_layout default
+
+################
+# Hide Borders #
+################
+hide_edge_borders both
+
+#########################
+# Application Binding   #
+# -------------------   #
+# Terminal: $mod+Return #
+# Chromium: $mod+C      #
+# Firefox:  $mod+i      #
+# DMenu:    $mod+d      #
+#########################
+#bindsym $mod+Return exec urxvt -e tmuxinator start online
+#bindsym $mod+Return exec urxvt -e tmux
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec urxvt -e tmux new-session
+#bindsym $mod+Return exec xterm -e tmx
+bindsym $mod+Shift+t exec xterm
+bindsym $mod+c exec chromium
+bindsym $mod+i exec firefox
+bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun#run#ssh -show combi
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+#################################
+# Assign Workspaces for Windows #
+# ----------------------------- #
+# Chromium   -> WS2:Browser     #
+# Pycharm    -> WS3:Development #
+# Phpstorm   -> WS3:Development #
+# Clion      -> WS3:Development #
+# Terminator -> WS4:Filezilla   #
+# Photoshop  -> WS5:Visual      #
+# SMPlayer   -> WS6:Relax       #
+# Vlc        -> WS6:Relax       #
+# Steam      -> WS8:Game        #
+#################################
+assign [class="Steam"] $WS8
+assign [class="Phpstorm"] $WS3
+assign [class="jetbrains-studio"] $WS3
+assign [class="jetbrains-phpstorm"] $WS3
+assign [class="Chromium"] $WS2
+assign [class="Terminator"] $WS4
+assign [class="URxvt"] $WS4
+assign [class="Filezilla"] $WS1
+assign [class="jetbrains-clion"] $WS3
+assign [class="Photoshop.exe"] $WS5
+assign [class="jetbrains-pycharm"] $WS3
+assign [class="smplayer"] $WS6
+assign [class="Vlc"] $WS6
+assign [class="Battle.net.exe"] $WS8
+assign [class="jetbrains-webstorm"] $WS3
+
+#############################################
+#           Window Specific Layout          #
+# ----------------------------------------- #
+# Popup windows floating and move to center #
+#############################################
+for_window [window_role="pop-up"] floating enable,move absolute center
+for_window [window_role="Open Files"] floating enable sticky
+for_window [window_role="File Operation Progress"] floating enable sticky
+for_window [window_role="Save As"] floating enable
+for_window [class="Steam"] floating enable
+for_window [instance="file_progress"]  sticky enable
+
+###########################################################################
+#                        Keyboard Action Bindings                         #
+# ----------------------------------------------------------------------- #
+# $mod+Shift+Q         = Kill Focused Window                              #
+# $mod+Left            = Focus on left window                             #
+# $mod+Down            = Focus on down window                             #
+# $mod+Up              = Focus on up window                               #
+# $mod+Right           = Focus on right window                            #
+# $mod+Shift+Left      = Move focused window to left                      #
+# $mod+Shift+Down      = Move focused window to down                      #
+# $mod+Shift+Up        = Move focused window to up                        #
+# $mod+Shift+Right     = Move focused window to right                     #
+# $mod+H               = Split horizontal orientation                     #
+# $mod+V               = Split vertical orientation                       #
+# $mod+F               = Toggle fullscreen on focused window              #
+# $mod+S               = Change current layout to stacking                #
+# $mod+W               = Change current layout to tabbed                  #
+# $mod+E               = Change current layout to split                   #
+# $mod+Shift+Space     = Change floating for focused window               #
+# $mod+Space           = Change focus between tiling and floating windows #
+# $mod+P               = Focus to parent window                           #
+# $mod+J               = Focus to child window                            #
+# $mod+Shift+V         = Mute/Unmute audio capture device (microphone)    #
+# XF86AudioRaiseVolume = Increase volume                                  #
+# XF86AudioLowerVolume = Decrease volume                                  #
+# XF86AudioMute        = Toggle mute                                      #
+# XF86AudioPlay        = Play/Pause for player                            #
+# XF86AudioNext        = Go to next track for player                      #
+# XF86AudioPrev        = Go to prev track for player                      #
+# $mod+PrtScr          = Take a screenshot with `maim`                    #
+# $mod+1..8            = Change workspace                                 #
+# $mod+Shift+1..8      = Move container to another workspace              #
+# $mod+Shift+C         = Reload i3 configuration file                     #
+# $mod+Shift+R         = Restart i3                                       #
+# $mod+R               = Switch to 'Resize' mode                          #
+# $mod+Shift+E         = Switch to 'Power' mode                           #
+# $mod+Shift+O         = Switch to 'Access' mode                          #
+# $mod+Shift+Minus     = Move focused window to scratchpad                #
+# $mod+Minus           = Show first window from scratchpad                #
+# $mod+Shift+C         = Clipboard manager selection                      #
+###########################################################################
+bindsym $mod+Shift+q kill
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+p focus parent
+bindsym $mod+j focus child
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym $mod+Shift+v exec --no-startup-id "amixer set Capture toggle"
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym $mod+Print exec maim --select ~/Pictures/Screenshots/$(date +%F-%T).png
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+e mode "power"
+bindsym $mod+Shift+o mode "access"
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+p exec clipster -sp
+bindsym $mod+Shift+s sticky toggle
+
+##########################################
+#           Resize Mode ($mod+R)         #
+# -------------------------------------- #
+# Desc: Resize the focused window        #
+#                                        #
+# Left   = Shrink width                  #
+# Down   = Grow height                   #
+# Up     = Shrink height                 #
+# Right  = Grow width                    #
+# Escape = Change mode to default (quit) #
+##########################################
+mode "resize" {
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Escape mode "default"
+}
+
+##########################################
+#           Power Mode ($mod+Shift+E)    #
+# -------------------------------------- #
+# Desc: Power init                       #
+#                                        #
+# L = Lockscreen                         #
+# R = Restart (Reboot)                   #
+# S = Shutdown (Poweroff)                #
+# H = Lockscreen + Hibernate             #
+# U = Lockscreen + Suspend               #
+# E = Logout                             #
+# Return = Change mode to default (quit) #
+# Escape = Change mode to default (quit) #
+##########################################
+mode "power" {
+# i3Lock
+#    bindsym l exec --no-startup-id i3lock --color "$lockBackground", mode "default"
+# i3Lock-Fancy
+#    bindsym l exec --no-startup-id i3lock-fancy -pt $lockMessage -- scrot -z, mode "default"
+    bindsym l exec --no-startup-id i3lock-color, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
+    bindsym u exec --no-startup-id i3lock && systemctl suspend, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+##
+# Fast Access Mode ($mod+Shift+O) #
+# ---
+# Desc: Fast access to applications mode
+#
+# Return = Terminal with `ranger`+`vim`+`mutt`+`irssi`
+# Escape = Change mode to default (quit)
+#####
+
+mode "access" {
+    bindsym Return exec --no-startup-id terminator --layout Operation --maximise, mode default
+    bindsym Escape mode "default" 
+}
+
+# i3status bar users should uncomment
+##############
+# Bottom Bar #
+##############
+#bar {
+#    status_command i3status
+#    position bottom
+#    modifier $mod
+#    separator_symbol ":|:"
+#    strip_workspace_numbers yes
+#    colors {
+#        background $barBackground
+#        statusline $barStatus
+#        separator $barSeparator
+#
+#        focused_workspace $barFocusBorder $barFocusBackground $barFocusText
+#        active_workspace $barActiveBorder $barActiveBackground $barActiveText
+#        inactive_workspace $barInactiveBorder $barInactiveBackground $barInactiveText
+#        urgent_workspace $barUrgentBorder $barUrgentBackground $barUrgentText
+#        binding_mode $barBindingBorder $barBindingBackground $barBindingText
+#    }
+#}
+
+####################################################
+#                    Startup                       #
+# ------------------------------------------------ #
+# Feh - Set wallpaper from ~/Pictures/Wallpapers/* #
+# Network Manager Applet - An applet for nm        #
+# Compton - Standalone composite manager           #
+# Clipster - Clipboard Manager Daemonger           #
+# twmnd   - twmn notification daemon               #
+# aarchup - Arch Linux update checker (uncomment)  #
+####################################################
+exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpapers/*
+exec --no-startup-id nm-applet
+#exec --no-startup-id clipster -d
+exec --no-startup-id compton --config ~/.config/compton.conf
+exec_always --no-startup-id ~/.config/polybar/polybar-launch.sh
