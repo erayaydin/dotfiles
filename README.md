@@ -18,7 +18,6 @@
 | Image Viewer       | Feh         | `feh`        | [Git](https://git.finalrewind.org/feh)             | [feh.finalrewind.org](https://feh.finalrewind.org/)                                       | [#feh on irc.oftc.net](irc://irc.oftc.net/feh)                             |
 | Music Player       | Cmus        | `cmus`       | [Git](https://github.com/cmus/cmus)                | [cmus.github.io](https://cmus.github.io/)                                                 | -                                                                          |
 | Monitor Management | Arandr      | `arandr`     | [Git](https://gitlab.com/arandr/arandr)            | [christian.amsuess.com/tools/arandr/](https://christian.amsuess.com/tools/arandr/)        | -                                                                          |
-|--------------------|-------------|--------------|----------------------------------------------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
 
 ## i3
 
@@ -27,6 +26,8 @@ Config Target Location: `~/.config/i3`
 
 Window Theme:
 
+| Object              | Color     |
+|---------------------|-----------|
 | Focus Border        | `#0088CC` |
 | Focus Background    | `#0088CC` |
 | Focus Text Color    | `#FFFFFF` |
@@ -46,6 +47,8 @@ Window Theme:
 
 i3-bar Theme (Default is polybar, not i3-bar):
 
+| Object                  | Color     |
+|-------------------------|-----------|
 | Bar Background          | `#333333` |
 | Bar Status              | `#FFFFFF` |
 | Bar Seperator           | `#08C08C` |
@@ -77,7 +80,6 @@ Workspaces:
 | 6     | 6:  | Out of Jobs. Like chat, watching movie, reading book etc. | `.smplayer`,`.Vlc`                                                                                                    |
 | 7     | 7:  | Background music                                          | -                                                                                                                     |
 | 8     | 8:  | Game                                                      | `.Steam`,`.Battle.net.exe`                                                                                            |
-|-------|------|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 
 Window Specific Layouts:
 
@@ -88,7 +90,6 @@ Window Specific Layouts:
 | `[role="File Operation Progress"]` | Yes      | Yes    | -        |
 | `.Steam`                           | Yes      | No     | -        |
 | `[instance="file_progress"]`       | No       | Yes    | -        |
-|------------------------------------|----------|--------|----------|
 
 Keyboard Actions:
 
@@ -129,7 +130,6 @@ Keyboard Actions:
 | <kbd>$mod</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>     | Switch to `Power` mode                           |
 | <kbd>$mod</kbd>+<kbd>Shift</kbd>+<kbd>-</kbd>     | Move focused window to _scratchpad_              |
 | <kbd>$mod</kbd>+<kbd>-</kbd>                      | Show first window from _scratchpad_              |
-|---------------------------------------------------|--------------------------------------------------|
 
 Resize Mode:
 
@@ -140,7 +140,6 @@ Resize Mode:
 | <kbd>Up</kbd>    | Resize shrink height   |
 | <kbd>Right</kbd> | Resize grow width      |
 | <kbd>Esc</kbd>   | Change mode to default |
-|------------------|------------------------|
 
 Power Mode:
 
@@ -154,7 +153,6 @@ Power Mode:
 | <kbd>e</kbd>      | Exit from i3              |
 | <kbd>Return</kbd> | Change mode to default    |
 | <kbd>Esc</kbd>    | Change mode to default    |
-|-------------------|---------------------------|
 
 Startup Programs:
 
@@ -164,7 +162,6 @@ Startup Programs:
 | `nm-applet`                                          | Network Manager Applet     |
 | `compton --config ~/.config/compton.conf`            | Start compositor (compton) |
 | `~/.config/polybar/polybar-launch.sh`                | Polybar                    |
-|------------------------------------------------------|----------------------------|
 
 ## Vim
 
