@@ -169,15 +169,16 @@ Startup Programs:
 Plugin Manager: [Plug]()
 Color Scheme: [Neodark](https://github.com/KeitaNakamura/neodark.vim)
 
-| Lightline | Configurable Statusline | [Github](https://github.com/itchyny/lightline.vim)
-| Vim Multiple Cursors | Multiple Cursors like SublimeText | [Github](https://github.com/terryma/vim-multiple-cursors)
-|
-| NERDTree | Tree Explorer | [Github](https://github.com/scrooloose/nerdtree)
-| EditorConfig | .editconfig Support | [Github](https://github.com/editorconfig/editorconfig-vim)
-| Emmet | Emmet Support | [Github](https://github.com/mattn/emmet-vim)
-| GitGutter | Show git diff in the gutter | [Github](https://github.com/airblade/vim-gitgutter)
-| Syntastic | Syntax checker | [Github](https://github.com/vim-syntastic/syntastic)
-| PHPComplete | PHP Autocomplete | [Github](https://github.com/shawncplus/phpcomplete.vim)
+|                      |                                   |                                                            |
+|----------------------|-----------------------------------|------------------------------------------------------------|
+| Lightline            | Configurable Statusline           | [Github](https://github.com/itchyny/lightline.vim)         |
+| Vim Multiple Cursors | Multiple Cursors like SublimeText | [Github](https://github.com/terryma/vim-multiple-cursors)  |
+| NERDTree             | Tree Explorer                     | [Github](https://github.com/scrooloose/nerdtree)           |
+| EditorConfig         | .editconfig Support               | [Github](https://github.com/editorconfig/editorconfig-vim) |
+| Emmet                | Emmet Support                     | [Github](https://github.com/mattn/emmet-vim)               |
+| GitGutter            | Show git diff in the gutter       | [Github](https://github.com/airblade/vim-gitgutter)        |
+| Syntastic            | Syntax checker                    | [Github](https://github.com/vim-syntastic/syntastic)       |
+| PHPComplete          | PHP Autocomplete                  | [Github](https://github.com/shawncplus/phpcomplete.vim)    |
 
 ### GitGutter
 
