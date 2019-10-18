@@ -170,7 +170,6 @@ assign [class="jetbrains-phpstorm"] $WS3
 assign [class="Chromium"] $WS2
 assign [class="Terminator"] $WS4
 assign [class="URxvt"] $WS4
-assign [class="Filezilla"] $WS1
 assign [class="jetbrains-clion"] $WS3
 assign [class="Photoshop.exe"] $WS5
 assign [class="jetbrains-pycharm"] $WS3
