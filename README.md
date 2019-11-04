@@ -716,6 +716,61 @@ XAuthority location = `$XDG_RUNTIME_DIR/Xauthority`
 
 Its add alias for start: `startx=startx $XDG_CONFIG_HOME/X11/xinitrc`
 
+## Compton
+
+### Installation
+
+Link compton configuration.
+
+```
+ln -sf ~/.dotfiles/compton.conf ~/.config/compton.conf
+```
+
+### Overview
+
+Options:
+
+- Backend: `glx`
+- Shadows: `true`
+- Draw shadows on DND Windows: `false`
+- Draw shadows on dock/panel windows: `false`
+- Blur radius for shadows: `5`
+- Left offset for shadows: `-5`
+- Top offset for shadows: `-5`
+- Opacity of shadows: `0.5`
+- Shadow color: `black` (default)
+- Menu opacity: `1`
+- Inactive opacity: `1`
+- Active opacity: `1`
+- Frame opacity: `1`
+- Alpha step: `0.06`
+- Fading: `true`
+- Fade delta: `4`ms. (change it to `10` if its too low).
+- Fade in opacity change: `0.03`
+- Fade out opacity change: `0.03`
+- Refresh rate: `0` (auto from XRandr extension)
+- VSync mode: `opengl-swc`
+
+Shadow Excludes:
+
+- `Notification`
+- `Plank`
+- `Docky`
+- `Kupfer`
+- `xfce4-notifyd`
+- `VLC`
+- `compton`
+- `Chromium`
+- `Chrome`
+- `.Conky`
+- `.Kupfer`
+- `.Synapse`
+- `.Notify-osd`
+- `.Cairo-dock`
+- `.Xfce4-notifyd`
+- `.Xfce4-power-manager`
+- `GTK Frames`
+
 ## Vim
 
 Plugin Manager: [Plug]()
