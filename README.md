@@ -640,6 +640,82 @@ Check Eray's XDG Base Directory Support section for other ENV variables.
 | `neofetch`        | Display information about system and terminal. |
 | `thefuck --alias` | Start thefuck alias. **Todo: Remove eval**     |
 
+## Eray's XDG Base Directory Support
+
+### Zsh
+
+There was an issue with Zsh support:
+
+- Zsh and Bash use same `HISTFILE` environment. Because of this, its also change `bash`'s history file path.
+
+History file location: `$XDG_DATA_HOME/zsh/history`
+
+Script will be create `$XDG_DATA_HOME/zsh` directory if its not exists.
+
+### Java
+
+Java Options:
+
+- `java.util.prefs.userRoot=$XDG_CONFIG_HOME`
+- `user.home=$XDG_DATA_HOME`
+
+Yourkit home location: `$XDG_CACHE_HOME`
+
+### Elinks
+
+Elinks configuration directory: `$XDG_CONFIG_HOME/elinks`.
+
+### Drush
+
+Drush cache directory: `$XDG_CACHE_HOME/drush`.
+
+### OpenSSL
+
+Rand file path: `$XDG_DATA_HOME/openssl/rnd`.
+
+Script will be create `$XDG_DATA_HOME/openssl` directory if its not exists.
+
+### Curl
+
+Curl home directory: `$XDG_CONFIG_HOME/curl`
+
+### NodeJS
+
+Node repl history file location: `$XDG_DATA_HOME/node_repl_history`.
+
+NPM User config path: `$XDG_CONFIG_HOME/npm/npmrc`.
+
+### Wget
+
+Its add alias for wget: `wget=wget --hsts-file=$XDG_CACHE_HOME/wget/wget-hsts`.
+
+Wgetrc location: `$XDG_CONFIG_HOME/wget/wgetrc`.
+
+Its will create `$XDG_CONFIG_HOME/wget` directory and `$XDG_CONFIG_HOME/wget/wgetrc` empty file if they are not exists.
+
+### Ruby
+
+Bundler related:
+
+- Bundle user config = `$XDG_CONFIG_HOME/bundle`
+- Bundle user cache = `$XDG_CACHE_HOME/bundle`
+- Bundle user plugins = `$XDG_DATA_HOME/bundle`
+
+Gem related:
+
+- Gem home = `$XDG_DATA_HOME/gem`
+- Gem spec cache = `$XDG_CACHE_HOME/gem`
+
+### X11
+
+Xinitrc location = `$XDG_CONFIG_HOME/X11/xinitrc`
+
+Xserverrc location = `$XDG_CONFIG_HOME/X11/xserverrc`
+
+XAuthority location = `$XDG_RUNTIME_DIR/Xauthority`
+
+Its add alias for start: `startx=startx $XDG_CONFIG_HOME/X11/xinitrc`
+
 ## Vim
 
 Plugin Manager: [Plug]()
