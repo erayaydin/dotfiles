@@ -1,0 +1,455 @@
+[colors]
+# Root colors
+background = #ff3a4750
+foreground = #ffeeeeee
+
+# Battery
+battery-charging = #ffb52a
+battery-discharging = #805300
+
+# Top Bar
+bar-top-background = ${colors.background}
+bar-top-border = #303841
+bar-top-foreground = ${colors.foreground}
+
+# i3wm
+i3-label-padding = 5
+
+i3-label-mode-background = #dae7f1
+i3-label-mode-foreground = #000
+i3-label-mode-padding = 3
+i3-label-focused-background = #ff333f47
+i3-label-focused-underline = 
+i3-label-focused-padding = ${self.i3-label-padding}
+i3-label-unfocused-background = #ff333f47
+i3-label-unfocused-underline = 
+i3-label-unfocused-padding = ${self.i3-label-padding}
+i3-label-visible-background = ${colors.i3-label-focused-background}
+i3-label-visible-underline = ${colors.i3-label-focused-underline}
+i3-label-visible-padding = ${self.i3-label-padding}
+i3-label-urgent-background = #d72323
+i3-label-urgent-underline = 
+i3-label-urgent-padding = ${self.i3-label-padding}
+
+# Memory
+memory-used-0 = #aaff77
+memory-used-1 = #aaff77
+memory-used-2 = #fba922
+memory-used-3 = #ff5555
+memory-used-indicator = #ff
+memory-empty-foreground = #444444
+
+# Wlan
+wlan-connected-underline = #9f78e1
+
+# Eth
+eth-connected-underline = #55aa55
+
+# Date
+date-icon-foreground = #ffffff
+date-underline = #0a6cf5
+
+# Volume
+volume-icon-foreground = ${root.foreground}
+volume-muted-foreground = #919191
+volume-foreground-0 = #55aa55
+volume-foreground-1 = #55aa55
+volume-foreground-2 = #55aa55
+volume-foreground-3 = #55aa55
+volume-foreground-4 = #55aa55
+volume-foreground-5 = #f5a70a
+volume-foreground-6 = #ff5555
+
+# Temperature
+temperature-underline = #f50a4d
+
+[icons]
+filesystem = "%{F#0a81f5}%{F-} %mountpoint%: %percentage_free%%(%free%)"
+cpu =  %percentage%%
+memory =  %percentage_used%%
+services =  %output%
+docker =  %output%
+wlan =  %downspeed%  %upspeed%
+eth =  
+date = 
+volume = 
+volume-muted = 
+battery-full =  
+
+[animations]
+# CPU
+cpu-0 = ▁
+cpu-0-foreground = #aaff77
+cpu-1 = ▂
+cpu-1-foreground = #aaff77
+cpu-2 = ▃
+cpu-2-foreground = #aaff77
+cpu-3 = ▄
+cpu-3-foreground = #aaff77
+cpu-4 = ▅
+cpu-4-foreground = #fba922
+cpu-5 = ▆
+cpu-5-foreground = #fba922
+cpu-6 = ▇
+cpu-6-foreground = #ff5555
+cpu-7 = █
+cpu-7-foreground = #ff5555
+
+# Wlan
+wlan-0 = 
+wlan-0-foreground = #ff0505
+wlan-1 = 
+wlan-1-foreground = #ff6d05
+wlan-2 = 
+wlan-2-foreground = #ffd105
+wlan-3 = 
+wlan-3-foreground = #fbff05
+wlan-4 = 
+wlan-4-foreground = #deff05
+wlan-5 = 
+wlan-5-foreground = #3bff05
+
+# Volume
+volume-0 = 
+volume-1 = 
+volume-2 = 
+
+# Battery
+battery-capacity-0 = 
+battery-capacity-0-foreground = #ff0000
+battery-capacity-1 = 
+battery-capacity-1-foreground = #ffcc00
+battery-capacity-2 = 
+battery-capacity-2-foreground =
+battery-capacity-3 = 
+battery-capacity-3-foreground = 
+battery-capacity-4 = 
+battery-capacity-4-foreground =
+battery-charging-0 = 
+battery-charging-1 = 
+battery-charging-2 = 
+battery-charging-3 = 
+battery-charging-4 = 
+
+# Temperature
+temperature-0 = 
+temperature-0-foreground =  
+temperature-1 = 
+temperature-1-foreground = 
+temperature-2 = 
+temperature-2-foreground = 
+temperature-3 = 
+temperature-3-foreground = 
+temperature-4 = 
+temperature-4-foreground = #ff0000
+
+[settings]
+# Uncomment for change monitor
+# monitor = ${env:MONITOR:e-P-1-1}
+width = 100%
+height = 27
+radius = 0
+modules-left = i3
+modules-center = rainbow-text
+modules-right = services docker status-web status-database filesystem volume memory cpu wlan eth battery temperature date
+
+[module/services]
+type = custom/script
+exec = systemctl --type=service --state=running list-units --no-pager | grep running | wc -l
+interval = 10
+label = ${icons.services}
+click-left = ~/.config/polybar/scripts/services.sh
+
+[module/docker]
+type = custom/script
+exec = if docker version >/dev/null 2>&1; then docker ps -q | wc -l; fi
+interval = 10
+label = ${icons.docker}
+click-left = ~/.config/polybar/scripts/docker.sh
+
+[bar/top]
+# Uncomment for change monitor
+#monitor = ${settings.monitor}
+width = ${settings.width}
+height = ${settings.height}
+radius = ${settings.radius}
+fixed-center = false
+
+background = ${colors.bar-top-background}
+foreground = ${colors.bar-top-foreground}
+
+line-size = 0
+
+border-bottom-size = 1
+border-bottom-color = ${colors.bar-top-border}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = FontAwesome:size=10;0
+font-1 = Font Awesome 5 Free:size=10;0
+font-2 = Font Awesome 5 Brands:size=10;0
+font-3 = Droid Sans Mono Dotted for Powerline:size=10
+font-4 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-5 = xos4 Terminess Powerline:pixelsize=10;1
+font-6 = siji:pixelsize=10;1
+
+modules-left = ${settings.modules-left}
+modules-center = ${settings.modules-center}
+modules-right = ${settings.modules-right}
+
+tray-position = right
+tray-padding = 2
+tray-transparent = true
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /var
+mount-2 = /home
+
+label-mounted = ${icons.filesystem}
+label-unmounted = %mountpoint% not mounted
+
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+fuzzy-match = true
+format = <label-mode><label-state>
+index-sort = true
+wrapping-scroll = false
+
+; mode = Current mode name
+label-mode-padding = ${colors.i3-label-mode-padding}
+label-mode-foreground = ${colors.i3-label-mode-foreground}
+label-mode-background = ${colors.i3-label-mode-background}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.i3-label-focused-background}
+label-focused-underline = ${colors.i3-label-focused-underline}
+label-focused-padding = ${colors.i3-label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-background = ${colors.i3-label-unfocused-background}
+label-unfocused-underline = ${colors.i3-label-unfocused-underline}
+label-unfocused-padding = ${colors.i3-label-unfocused-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${colors.i3-label-visible-background}
+label-visible-underline = ${colors.i3-label-visible-underline}
+label-visible-padding = ${colors.i3-label-visible-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.i3-label-urgent-background}
+label-urgent-underline = ${colors.i3-label-urgent-underline}
+label-urgent-padding = ${colors.i3-label-urgent-padding}
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload>
+label = ${icons.cpu}
+
+ramp-coreload-0 = ${animations.cpu-0}
+ramp-coreload-0-foreground = ${animations.cpu-0-foreground}
+ramp-coreload-1 = ${animations.cpu-1}
+ramp-coreload-1-foreground = ${animations.cpu-1-foreground}
+ramp-coreload-2 = ${animations.cpu-2}
+ramp-coreload-2-foreground = ${animations.cpu-2-foreground}
+ramp-coreload-3 = ${animations.cpu-3}
+ramp-coreload-3-foreground = ${animations.cpu-3-foreground}
+ramp-coreload-4 = ${animations.cpu-4}
+ramp-coreload-4-foreground = ${animations.cpu-4-foreground}
+ramp-coreload-5 = ${animations.cpu-5}
+ramp-coreload-5-foreground = ${animations.cpu-5-foreground}
+ramp-coreload-6 = ${animations.cpu-6}
+ramp-coreload-6-foreground = ${animations.cpu-6-foreground}
+ramp-coreload-7 = ${animations.cpu-7}
+ramp-coreload-7-foreground = ${animations.cpu-7-foreground}
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label = ${icons.memory}
+
+bar-used-width = 10
+bar-used-foreground-0 = ${colors.memory-used-0}
+bar-used-foreground-1 = ${colors.memory-used-1}
+bar-used-foreground-2 = ${colors.memory-used-2}
+bar-used-foreground-3 = ${colors.memory-used-3}
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = ${colors.memory-used-indicator}
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = ${colors.memory-empty-foreground}
+
+[module/wlan]
+type = internal/network
+# Todo: Add setting section entry for easy change interface
+interface = wlp7s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${colors.wlan-connected-underline}
+label-connected = ${icons.wlan}
+format-disconnected =
+
+ramp-signal-0 = ${animations.wlan-0}
+ramp-signal-0-foreground = ${animations.wlan-0-foreground}
+ramp-signal-1 = ${animations.wlan-1}
+ramp-signal-1-foreground = ${animations.wlan-1-foreground}
+ramp-signal-2 = ${animations.wlan-2}
+ramp-signal-2-foreground = ${animations.wlan-2-foreground}
+ramp-signal-3 = ${animations.wlan-3}
+ramp-signal-3-foreground = ${animations.wlan-3-foreground}
+ramp-signal-4 = ${animations.wlan-4}
+ramp-signal-4-foreground = ${animations.wlan-4-foreground}
+ramp-signal-5 = ${animations.wlan-5}
+ramp-signal-5-foreground = ${animations.wlan-5-foreground}
+
+[module/eth]
+type = internal/network
+# Todo: Add setting section entry for easy change interface
+interface = enp8s0
+interval = 3.0
+
+format-connected-underline = ${colors.eth-connected-underline}
+format-connected-prefix = ${icons.eth}
+label-connected = %local_ip%
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 5
+
+# Todo: add date formats to setting section
+date =
+date-alt = "%d.%m.%Y"
+
+# Todo: add time formats to setting section
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = ${icons.date}
+format-prefix-foreground = ${colors.date-icon-foreground}
+format-underline = ${colors.date-underline}
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <bar-volume>
+label-volume = ${icons.volume}
+label-volume-foreground = ${colors.volume-icon-foreground}
+
+format-muted-prefix = 
+label-muted = ${icons.volume-muted}
+format-muted-foreground = ${colors.volume-muted-foreground}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.volume-foreground-0}
+bar-volume-foreground-1 = ${colors.volume-foreground-1}
+bar-volume-foreground-2 = ${colors.volume-foreground-2}
+bar-volume-foreground-3 = ${colors.volume-foreground-3}
+bar-volume-foreground-4 = ${colors.volume-foreground-4}
+bar-volume-foreground-5 = ${colors.volume-foreground-5}
+bar-volume-foreground-6 = ${colors.volume-foreground-6}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 4
+bar-volume-fill = ─
+bar-volume-fill-font = 1
+bar-volume-empty = ─
+bar-volume-empty-font = 4
+
+ramp-volume-0 = ${animations.volume-0}
+ramp-volume-1 = ${animations.volume-1}
+ramp-volume-2 = ${animations.volume-2}
+
+[module/battery]
+type = internal/battery
+# Todo: add battery, adapter and full-at keys to setting section
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.battery-charging}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.battery-discharging}
+
+format-full-prefix = ${icons.battery-full}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = ${animations.battery-capacity-0}
+ramp-capacity-0-foreground = ${animations.battery-capacity-0-foreground}
+ramp-capacity-1 = ${animations.battery-capacity-1}
+ramp-capacity-1-foreground = ${animations.battery-capacity-1-foreground}
+ramp-capacity-2 = ${animations.battery-capacity-2}
+ramp-capacity-3 = ${animations.battery-capacity-3}
+ramp-capacity-4 = ${animations.battery-capacity-4}
+
+animation-charging-0 = ${animations.battery-charging-0}
+animation-charging-1 = ${animations.battery-charging-1}
+animation-charging-2 = ${animations.battery-charging-2}
+animation-charging-3 = ${animations.battery-charging-3}
+animation-charging-4 = ${animations.battery-charging-4}
+animation-charging-foreground = ${colors.battery-charging}
+animation-charging-framerate = 300
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 75
+
+format = <ramp> <label>
+format-underline = ${colors.temperature-underline}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-4-foreground = #ff0000
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[module/status-web]
+type = custom/script
+exec = ~/.config/polybar/scripts/status-web.sh
+interval = 10
+
+[module/rainbow-text]
+type = custom/script
+exec = ~/.config/polybar/scripts/rainbow-text.sh
+interval=1
+
+[module/status-database]
+type = custom/script
+exec = ~/.config/polybar/scripts/status-database.sh
+interval = 10
+
+;vim:ft=dosini

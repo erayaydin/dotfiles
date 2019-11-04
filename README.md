@@ -771,6 +771,210 @@ Shadow Excludes:
 - `.Xfce4-power-manager`
 - `GTK Frames`
 
+## Polybar
+
+### Installation
+
+Link polybar configuration folder with your `$XDG_CONFIG_HOME`.
+
+```
+ln -sf ~/.dotfiles/polybar ~/.config/polybar
+```
+
+You can customize colors,icons(+format) and bar settings in config's first 3 sections(`icons`, `colors` and `settings`).
+
+### Overview
+
+There is only one bar(top) on current setup. 
+
+- Width: `100%`
+- Height: `27`
+- Radius: `0`
+- Fixed Center: `false`
+- Background Color: `#ff3a4750`
+- Foreground Color: `#ffeeeeee`
+- Line size: `0`
+- Border Bottom: `1px #303841`
+- Padding: `0 2px 0 0`
+- Module Margin: `0 1px 0 1px`
+- Fonts: `FontAwesome:size=10;0`, `Font Awesome 5 Free:size=10;0`, `Font Awesome 5 Brands:size=10;0`, `Droid Sans Mono Dotted for Powerline:size=10`, `unifont:fontformat=truetype:size=8:antiaias=false;0`, `xos4 Terminess Powerline:pixelsize=10;1`, `siji:pixelsize=10;1`
+- Tray position: `right`
+- Tray Padding: `2px`
+
+#### Left Modules
+
+- i3
+  - Strip Workspace Numbers: `true`
+  - Fuzzy Match: `true`
+  - Format: `<label-mode><label-state>`
+  - Index Sort: `true`
+  - Wrapping Scroll: `false`
+  - Label Mode
+    - Padding: `3px`
+    - Background: `#dae7f1`
+    - Foreground: `#000`
+  - Label Focused
+    - Text: `%name%`
+    - Background: `#ff455560`
+    - Padding: `5px`
+  - Label Unfocused
+    - Text: `%name%`
+    - Background: `#ff333f47`
+    - Underline: `#1c3144`
+    - Padding: `5px`
+  - Label Visible
+    - Text: `%name%`
+    - Background: `#33658a`
+    - Underline: ` `
+    - Padding: `5px`
+  - Label Urgent
+    - Text: `%name%`
+    - Background: `#d72323`
+    - Underline: ` `
+    - Padding: `5px`
+
+#### Center Modules
+
+- RainbowText
+  - Script Location: `~/.config/polybar/scripts/rainbow-text.sH`
+  - Interval: `1` second(s)
+
+#### Right Modules
+
+- Services
+  - Script Location: `systemctl --type=service --state=running list-units --no-pager | grep running | wc -l`
+  - Interval: `10` second(s)
+  - Label: ` %output%`
+  - On Click: `~/.config/polybar/scripts/services.sh`
+- Docker
+  - Script Location: `if docker version >/dev/null 2>&1; then docker ps -q | wc -l; fi`
+  - Interval: `10` second(s)
+  - Label: ` %output%`
+  - On Click: `~/.config/polybar/scripts/docker.sh`
+- Web Server Status
+  - Script Location: `~/.config/polybar/scripts/status-web.sh`
+  - Interval:`10` second(s)
+- Database Server Status
+  - Script Location: `~/.config/polybar/scripts/status-database.sh`
+  - Interval: `10` second(s)
+- Filesystem
+  - Mounts: `/`, `/var` and `/home`
+  - Interval: `25` second(s)
+  - Mounted Text: `%{F#0a81f5}%{F-} %mountpoint%: %percentage_free%%(%free%)`
+  - Unmounted Text: `%mountpoint% not mounted`
+- Volume
+  - Format: `<ramp-volume> <bar-volume>`
+  - Label Volume
+    - Text: ``
+    - Foreground: `#ffeeeeee`
+  - Label Muted
+    - Text: ``
+    - Foreground: `#919191`
+  - Bar
+    - Width: `10`
+    - Foreground: `#55aa55`-`#55aa55`-`#55aa55`-`#55aa55`-`#55aa55`-`#f5a70a`-`#ff5555`
+    - Indicator
+      - Text: `|`
+      - Font Size: `4`
+    - Fill
+      - Text: `─`
+      - Font Size: `1`
+    - Empty
+      - Text: `─`
+      - Font Size: `4`
+  - Ramp: ``->``->``
+- Memory
+  - Format: `<label> <bar-used>`
+  - Label: ` %percentage_used%%`
+  - Bar Used
+    - Width: `10`
+    - Foreground: `#aaff77`->`#aaff77`->`#fba922`->`#ff5555`
+    - Indicator
+      - Text: `|`
+      - Font Size: `6`
+      - Foreground: `#ff`
+    - Fill
+      - Text: `─`
+      - Font Size: `6`
+    - Empty
+      - Text: `─`
+      - Font Size: `6`
+      - Foreground: `#444444`
+- CPU
+  - Interval: `0.5` second(s)
+  - Format: `<label> <ramp-coreload>`
+  - Label: ` %percentage%%`
+  - Ramp
+    - Font Size: `4`
+    - Text: `▁`->`▂`->`▃`->`▄`->`▅`->`▆`->`▇`->`█`
+    - Foreground: `#aaff77`->`#aaff77`->`#aaff77`->`#aaff77`->`#fba922`->`#fba922`->`#ff5555`->`#ff5555`
+- Wlan
+  - Interface: `wlp7s0` (**Change it if you use another interface name**)
+  - Interval: `3.0` second(s)
+  - Connected
+    - Format: `<ramp-signal> <label-connected>`
+    - Underline: `#9f78e1`
+    - Label: ` %downspeed%  %upspeed%`
+  - Disconnected
+    - Format: ` `
+  - Ramp
+    - Text: ``->``->``->``->``->``
+    - Foreground: `#ff0505`->`#ff6d05`->`#ffd105`->`#fbff05`->`#deff05`->`#3bff05`
+- Eth
+  - Interface: `enp8s0` (**Change it if you use another interface name**)
+  - Interval: `3.0` second(s)
+  - Connected
+    - Underline: `#55aa55`
+    - Prefix: ` `
+    - Label: `%local_ip%`
+  - Disconnected
+    - Format: ` `
+- Battery
+  - Battery: `BAT0` (**Change it if you use another battery name/number**)
+  - Adapter: `AC`
+  - Full At: `98` (**Change it if your battery life is bad/good**)
+  - Charging
+    - Format: `<animation-charging> <label-charging>`
+    - Underline: `#ffb52a`
+    - Animation: ``->``->``->``->``
+    - Animation Foreground: `colors battery charging`
+    - Animation Framerate: `300`
+  - Discharging
+    - Format: `<ramp-capacity> <label-discharging>`
+    - Underline: `#805300`
+  - Full
+    - Prefix: ` `
+    - Underline: `#ffb52a`
+  - Ramp
+    - Text: ``->``->``->``->``
+    - Foreground: `#ff0000`->`#ffcc00`->`#99ffff00`->`#99bfff00`->`#99bfff00`
+- Temperature
+  - Warn: `75`
+  - Default
+    - Format: `<ramp> <label>`
+    - Underline: `#f50a4d`
+    - Label: `%temperature%`
+  - Warn
+    - Format: `<ramp> <label-warn>`
+    - Underline: `#f50a4d`
+    - Label: `%temperature%`
+  - Ramp
+    - Text: ``->``->``->``->``
+    - Foreground: `#00ff00`->`#ccaaff00`->`#ccaaff00`->`#ff9900`->`#ff0000`
+- Date
+  - Interval: `5` second(s)
+  - Default
+    - Date: ` `
+    - Time: `%H:%M`
+  - Alternative
+    - Date: `%d.%m.%Y`
+    - Time: `%H:%M:%S`
+  - Prefix
+    - Text: ``
+    - Foreground: `#ffffff`
+  - Underline: `#0a6cf5`
+  - Label: `%date% %time%`
+
 ## Vim
 
 Plugin Manager: [Plug]()
