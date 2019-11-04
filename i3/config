@@ -361,4 +361,4 @@ mode "power" {
 exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpapers/*
 exec --no-startup-id nm-applet
 exec --no-startup-id compton --config ~/.config/compton.conf
-exec_always --no-startup-id ~/.config/polybar/polybar-launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
