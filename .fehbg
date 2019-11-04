@@ -1,4 +1,0 @@
-#!/bin/sh
-
-feh --recursive --randomize --bg-scale ~/Pictures/Wallpapers
-
