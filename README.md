@@ -991,6 +991,78 @@ ln -sf ~/.dotfiles/curl ~/.config/curl
 - Referer: `;auto`
 - Timeout: `30` second(s)
 
+## Mutt
+
+### Installation
+
+Link dotfiles `mutt` folder to your `$XDG_CONFIG_DIR`.
+
+```
+ln -sf ~/.dotfiles/mutt ~/.config/mutt
+```
+
+### Overview
+
+- Multiple Account Support
+- XDG Base Directory support
+- Custom status format
+- Sidebar
+- Aliases
+- Autoview
+- Header Ignore
+- Theme: `default` (`gruvbox` installed but optional)
+
+### Add E-Mail Account
+
+1. Copy any other config as `$XDG_CONFIG_HOME/mutt/accounts/email-name/config` file.
+2. Add `folder-hook` to the `muttrc` file.
+3. If you want to **default** change `source` on `muttrc` file.
+4. Add macro in `muttrc` file for retrieve e-mail.
+
+### Settings
+
+You can change these settings from `muttrc` file.
+
+- Charset: `utf-8`
+- Editor: `vim -c 'set nocompatible tw=72 ft=mail noautoindent fo=aw cursorline number'`
+- Status
+  - Chars: ` *%A`
+  - Format: `───[ Acc: %f ]───[%r%m mesaj%?n? (%n yeni)?%?d? (%d silinecek)?%?t? (%t işaretli)? ]───%>─%?p?( %p ertelenm    iş )?───`
+- Sidebar
+  - Format: `%B%?F? [%F]?%* %?N?%N/?%S`
+- Signature On Top: `true`
+- Mail check: `60` second(s)
+- No fucking beep!
+
+### Aliases
+
+| Section(s)      | Alias | Command                  |
+|-----------------|-------|--------------------------|
+| `index`,`pager` | `H`   | `sidebar-toggle-visible` |
+| `index`,`pager` | `J`   | `sidebar-next`           |
+| `index`,`pager` | `K`   | `sidebar-prev`           |
+| `index`,`pager` | `L`   | `sidebar-open`           |
+| `index`,`pager` | `G`   | `imap-fetch-mail`        |
+
+### Auto View
+
+- `application/msword`
+- `application/octet-stream`
+- `application/RTF`
+- `application/x-gunzip`
+- `application/x-gzip`
+- `application/x-perl`
+- `application/x-sh`
+- `application/x-tar-gz`
+- `application/x-tcl`
+- `application/x-zip-compressed`
+- `applicatioN/zip`
+- `image/tiff`
+- `text/html`
+- `text/x-vcard`
+
+Order: `text/enriched`, `text/plain`, `text` and `text/html`.
+
 ## Vim
 
 Plugin Manager: [Plug]()

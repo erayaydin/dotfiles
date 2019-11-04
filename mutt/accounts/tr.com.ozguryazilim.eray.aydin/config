@@ -1,6 +1,5 @@
 # Reset
-
-source "~/.mutt/scripts/reset"
+source "$XDG_CONFIG_HOME/mutt/scripts/reset"
 
 # Email Configuration
 set realname = "Eray Aydın"
@@ -12,7 +11,6 @@ set imap_list_subscribed = yes
 set imap_passive = no
 set imap_user = "eray.aydin"
 set imap_pass = `pass mutt/eray.aydin@ozguryazilim.com.tr`
-#set smtp_authenticators = ""
 set smtp_url = "smtps://eray.aydin@smtp.ozguryazilim.com.tr:465/"
 set smtp_pass = `pass mutt/eray.aydin@ozguryazilim.com.tr`
 
@@ -29,17 +27,13 @@ set ssl_verify_host = yes
 # Folders
 set folder = "imaps://eray.aydin@imap.ozguryazilim.com.tr:993/"
 set spoolfile = "+INBOX"
-#set postponed = "+[Gmail]/Drafts"
-#set trash = ""
-#set record = ""
-#mailboxes +INBOX ....
 
 # Certificates
-set certificate_file = "~/.mutt/accounts/tr.com.ozguryazilim.eray.aydin/certificates"
+set certificate_file = "$XDG_CACHE_HOME/mutt/accounts/tr.com.ozguryazilim.eray.aydin/certificates"
 
 # Cache
-set header_cache = "~/.mutt/accounts/tr.com.ozguryazilim.eray.aydin/cache/headers"
-set message_cachedir = "~/.mutt/accounts/tr.com.ozguryazilim.eray.aydin/cache/bodies"
+set header_cache = "$XDG_CACHE_HOME/mutt/accounts/tr.com.ozguryazilim.eray.aydin/cache/headers"
+set message_cachedir = "$XDG_CACHE_HOME/mutt/accounts/tr.com.ozguryazilim.eray.aydin/cache/bodies"
 
 # Signature
-set signature = "~/.mutt/signatures/ozguryazilim"
+set signature = "$XDG_CONFIG_HOME/mutt/signatures/ozguryazilim"

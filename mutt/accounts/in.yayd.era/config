@@ -1,6 +1,5 @@
 # Reset
-
-source "~/.mutt/scripts/reset"
+source "$XDG_CONFIG_HOME/mutt/scripts/reset"
 
 # Email Configuration
 set realname = "Eray Aydın"
@@ -12,7 +11,6 @@ set imap_list_subscribed = yes
 set imap_passive = no
 set imap_user = "er@yayd.in"
 set imap_pass = `pass mutt/er@yayd.in`
-#set smtp_authenticators = ""
 set smtp_url = "smtps://er@yayd.in@smtp.yandex.com.tr:465/"
 set smtp_pass = `pass mutt/er@yayd.in`
 
@@ -29,17 +27,13 @@ set ssl_verify_host = yes
 # Folders
 set folder = "imaps://imap.yandex.com.tr:993/"
 set spoolfile = "+INBOX"
-#set postponed = ""
-#set trash = ""
-#set record = ""
-#mailboxes +INBOX ....
 
 # Certificates
-set certificate_file = "~/.mutt/accounts/in.yayd.era/certificates"
+set certificate_file = "$XDG_CACHE_HOME/mutt/accounts/in.yayd.era/certificates"
 
 # Cache
-set header_cache = "~/.mutt/accounts/in.yayd.era/cache/headers"
-set message_cachedir = "~/.mutt/accounts/in.yayd.era/cache/bodies"
+set header_cache = "$XDG_CACHE_HOME/mutt/accounts/in.yayd.era/cache/headers"
+set message_cachedir = "$XDG_CACHE_HOME/mutt/accounts/in.yayd.era/cache/bodies"
 
 # Signature
-set signature = "~/.mutt/signatures/personal"
+set signature = "$XDG_CONFIG_HOME/mutt/signatures/personal"

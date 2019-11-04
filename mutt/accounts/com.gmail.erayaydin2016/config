@@ -1,6 +1,5 @@
 # Reset
-
-source "~/.mutt/scripts/reset"
+source "$XDG_CONFIG_HOME/mutt/scripts/reset"
 
 # Email Configuration
 set realname = "Eray Aydın"
@@ -12,7 +11,6 @@ set imap_list_subscribed = yes
 set imap_passive = no
 set imap_user = "erayaydin2016@gmail.com"
 set imap_pass = `pass mutt/erayaydin2016@gmail.com`
-#set smtp_authenticators = ""
 set smtp_url = "smtps://erayaydin2016@gmail.com@smtp.gmail.com:465/"
 set smtp_pass = `pass mutt/erayaydin2016@gmail.com`
 
@@ -30,16 +28,13 @@ set ssl_verify_host = yes
 set folder = "imaps://imap.gmail.com:993/"
 set spoolfile = "+INBOX"
 set postponed = "+[Gmail]/Drafts"
-#set trash = ""
-#set record = ""
-#mailboxes +INBOX ....
 
 # Certificates
-set certificate_file = "~/.mutt/accounts/com.gmail.erayaydin2016/certificates"
+set certificate_file = "$XDG_CACHE_HOME/mutt/accounts/com.gmail.erayaydin2016/certificates"
 
 # Cache
-set header_cache = "~/.mutt/accounts/com.gmail.erayaydin2016/cache/headers"
-set message_cachedir = "~/.mutt/accounts/com.gmail.erayaydin2016/cache/bodies"
+set header_cache = "$XDG_CACHE_HOME/mutt/accounts/com.gmail.erayaydin2016/cache/headers"
+set message_cachedir = "$XDG_CACHE_HOME/mutt/accounts/com.gmail.erayaydin2016/cache/bodies"
 
 # Signature
-set signature = "~/.mutt/signatures/personal"
+set signature = "$XDG_CONFIG_HOME/mutt/signatures/personal"
