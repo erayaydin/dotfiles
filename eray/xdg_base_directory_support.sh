@@ -96,3 +96,7 @@ alias startx="startx $XDG_CONFIG_HOME/X11/xinitrc"
 
 # Set Xauthority Location
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+
+### Vim
+
+export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
