@@ -1,0 +1,14 @@
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*transparent: false
+URxvt*depth: 32
+URxvt*background: [50]#2b303b
+URxvt.font: xft:SauceCodePro Nerd Font Mono:pixelsize=11
+URxvt.perl-ext-common: default,matcher,clipboard,keyboard-select
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.iso14755: false
+URxvt.url-launcher: chromium
+URxvt.matcher.button: 1

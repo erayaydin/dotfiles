@@ -1,0 +1,8 @@
+! Color Scheme
+#include "colorschemes/default"
+
+! Program Specific Files
+#include "programs/urxvt"
+
+*antialias: true
+*autohint: true

@@ -1,12 +1,13 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+# Set user and system paths for resources and keymaps.
+userresources=$XDG_CONFIG_HOME/X11/Xresources
+usermodmap=$XDG_CONFIG_HOME/X11/Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+colorscheme=$XDG_CONFIG_HOME/X11/colorschemes/cyberpunk
 
-# merge in defaults and keymaps
-
+# Merge defaults and system files.
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources
 fi
@@ -16,7 +17,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+    xrdb -I$XDG_CONFIG_HOME/X11/ -merge "$userresources"
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -36,6 +37,7 @@ fi
 export MAN_DISABLE_SECCOMP=1
 
 # XRandr Nvidia Fix
+# Comment this line if you don't use prop. NVIDIA driver
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 
@@ -45,4 +47,4 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # Start i3
-exec i3
+exec i3 -V

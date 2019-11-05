@@ -1063,6 +1063,35 @@ You can change these settings from `muttrc` file.
 
 Order: `text/enriched`, `text/plain`, `text` and `text/html`.
 
+## X11
+
+### Installation
+
+Link `X11` folder to the your `$XDG_CONFIG_HOME` directory.
+
+```
+$ ln -sf ~/.dotfiles/X11 ~/.config/X11
+```
+
+If you didn't install `Eray's XDG Base Directory Support` on this dotfiles, than add this environment variable to your session.
+
+```
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+# Optional
+export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
+# Another way (You can use both if you want)
+alias startx="startx $XDG_CONFIG_HOME/X11/xinitrc"
+# Optional
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+```
+
+### Overview
+
+- User and System resources with keybinds.
+- Man fix (`$MAN_DISABLE_SECCOMP=1`)
+- XRandr Nvidia Fix (**If you don't use NVIDIA prop driver, comment it on xinitrc file**)
+- GnomeKeyring i3 Fix
+
 ## Vim
 
 Plugin Manager: [Plug]()
