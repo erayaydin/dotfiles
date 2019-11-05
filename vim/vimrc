@@ -3,14 +3,19 @@
 "
 " Maintainer: Eray Aydın <er@yayd.in>
 " Init: 2017-10-20
-" Version: 2.0 (teen)
-" Last Change: 2018-12-04
+" Version: 3.0 (teenager)
+" Last Change: 2019-11-05
 
-" /----------/
-" / INDEX OF /
-" /----------/
-" / 1. BOOT  /
-" ////////////
+" /-------------------------/
+" /        INDEX OF         /
+" /-------------------------/
+" / 1. BOOT                 /
+" / 2. PATH                 /
+" / 3. PLUGINS              /
+" / 4. GENERAL SETTINGS     /
+" / 5. PLUGIN CUSTOMIZATION /
+" / 6. ENDING               /
+" ///////////////////////////
 
 " ===========
 " = 1. BOOT =
@@ -22,26 +27,29 @@ set nocompatible
 " Helps for plugins load correctly, we turned on again (below)
 filetype off
 
+" ===========
+" = 2. Path =
+" ===========
+
+" XDG Base Directory Support
+let $MYVIMDIR=expand("<sfile>:h")
+source $MYVIMDIR/xdg.vim
+
 " ==============
-" = 2. PLUGINS =
+" = 3. PLUGINS =
 " ==============
 
-call plug#begin('~/.vim/plug')
+call plug#begin('$XDG_DATA_HOME/vim/plug')
 
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install'}
-
-" Neodark - Color Schema
-" ------------------------
-"  Github: https://github.com/KeitaNakamura/neodark.vim
-Plug 'KeitaNakamura/neodark.vim'
+" Gruvbox - Retro groove color scheme
+" -----------------------------------
+"  Github: https://github.com/morhetz/gruvbox
+Plug 'morhetz/gruvbox'
 
 " Lightline - Configurable Statusline
 " -----------------------------------
 "  Github: https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'
-
-Plug 'ajh17/VimCompletesMe'
-" Plug 'davidhalter/jedi-vim'
 
 " Vim Multiple Cursors
 " --------------------
@@ -73,22 +81,40 @@ Plug 'airblade/vim-gitgutter'
 "  Github: https://github.com/vim-syntastic/syntastic
 Plug 'vim-syntastic/syntastic'
 
-Plug 'shawncplus/phpcomplete.vim'
-
-Plug 'blindFS/vim-taskwarrior'
-
-Plug 'posva/vim-vue'
-
+" Dispatch - Async build and test dispatcher
+" ------------------------------------------
+"  Github: https://github.com/tpope/vim-dispatch
 Plug 'tpope/vim-dispatch'
+
+" Projectionist - Granular project configuration
+" ----------------------------------------------
+"  Github: https://github.com/tpope/vim-projectionist
 Plug 'tpope/vim-projectionist'
-Plug 'noahfrederick/vim-composer' 
+
+" Composer Support
+" ----------------
+"  Github: https://github.com/noahfrederick/vim-composer
+Plug 'noahfrederick/vim-composer'
+
+" Laravel/Lumen Support
+" ---------------------
+"  Github: https://github.com/noahfrederick/vim-laravel
 Plug 'noahfrederick/vim-laravel'
 
+" Grammarous - Grammary check
+" ---------------------------
+"  Github: https://codepen.io/russelllighthouse/pen/pRXyqW
+Plug 'rhysd/vim-grammarous'
+
+" Vim Table Mode - Easy table creation on text and markdown
+" ---------------------------------------------------------
+"  Github: https://github.com/dhruvasagar/vim-table-mode
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 
 " =======================
-" = 3. GENERAL SETTINGS =
+" = 4. GENERAL SETTINGS =
 " =======================
 
 " Syntax Highlighting
@@ -125,54 +151,10 @@ set tabstop=4
 set lines=999 columns=999
 
 " Colorscheme
-colorscheme neodark
+colorscheme gruvbox 
 
 " Try to use colors that look good on a dark background
 set background=dark
-
-" ===========
-" = 4. Path =
-" ===========
-
-" Base Directory
-" --------------
-"  Description: Create base directory if its not exists
-if isdirectory('~/.temp') == 0
-	:silent !mkdir -p ~/.temp/vim > /dev/null 2>&1
-endif
-
-" Backup
-" ------
-"  Description: Save your backup files to less annoying place
-if exists("+backup")
-	if isdirectory('~/.temp/vim/backup') == 0
-		:silent !mkdir -p ~/.temp/vim/backup > /dev/null 2>&1
-	endif
-	set backupdir=~/.temp/vim/backup
-endif
-set backup
-
-" Swap
-" ----
-"  Description: This allows you to set less annoying directory for swap files.
-if exists("+directory")
-	if isdirectory('~/.temp/vim/swap') == 0
-		:silent !mkdir -p ~/.temp/vim/swap > /dev/null 2>&1
-	endif
-	set directory=~/.temp/vim/swap//
-endif
-
-" Undofile
-" --------
-"  Version: 7.3+
-"  Description: Allows you to use 'undos' after exiting and restarting
-if has("persistent_undo")
-	if isdirectory('~/.temp/vim/undo') == 0
-		:silent !mkdir -p ~/.temp/vim/undo > /dev/null 2>&1
-	endif
-	set undodir=~/.temp/vim/undo//
-	set undofile
-endif
 
 " ===========================
 " = 5. PLUGIN CUSTOMIZATION =
