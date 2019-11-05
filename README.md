@@ -1092,6 +1092,21 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 - XRandr Nvidia Fix (**If you don't use NVIDIA prop driver, comment it on xinitrc file**)
 - GnomeKeyring i3 Fix
 
+### Resources
+
+You can select/add your colorscheme to `$XDG_CONFIG_HOME/X11/colorschemes/` folder.
+
+### Mod Mapping
+
+Currently, there is no binding/mapping. You can add your `$XDG_CONFIG_HOME/X11/Xmodmap` folder.
+
+For testing, just execute:
+
+```
+# For test only, if you replace X11 session, its will be permanent.
+$ xmodmap $XDG_CONFIG_HOME/X11/Xmodmap
+```
+
 ## Vim
 
 Plugin Manager: [Plug]()
