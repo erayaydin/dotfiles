@@ -1,0 +1,12 @@
+# Ignore gpg files to VCS
+*.gpg
+
+# Ignore random seed file
+random_seed
+
+# Ignore public keyring kbx files
+*.kbx*
+
+# Ignore subdirectories
+crls.d/
+private-keys-v1.d/
