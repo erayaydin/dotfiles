@@ -17,3 +17,6 @@
 # Easy-RSA Ignore
 /pki
 
+# OBS Studio Ignore
+/obs-studio
+
