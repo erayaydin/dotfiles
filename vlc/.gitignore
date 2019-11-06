@@ -1,0 +1,3 @@
+# Ignore QT Interface configuration in VLC
+/vlc-qt-interface.conf
+
