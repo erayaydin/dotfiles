@@ -1,4 +1,6 @@
 # Asciinema install-id auth token should be ignored
 /asciinema
 
-
+# Filezilla ignored
+# Todo: Add filezilla's settings xml file without secret data
+/filezilla
