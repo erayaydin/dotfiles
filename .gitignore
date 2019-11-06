@@ -4,3 +4,6 @@
 # Filezilla ignored
 # Todo: Add filezilla's settings xml file without secret data
 /filezilla
+
+# Virtualbox ignore
+/VirtualBox
