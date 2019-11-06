@@ -7,3 +7,6 @@
 
 # Virtualbox ignore
 /VirtualBox
+
+# Unity3D Ignore
+/unity3d
