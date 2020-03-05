@@ -1,0 +1,26 @@
+<application>
+  <component name="DimensionService">
+    <location key="FileChooserDialogImpl.0.0.1920.1080" x="772" y="173" />
+    <location key="WELCOME_SCREEN.0.0.1920.1080" x="961" y="451" />
+    <location key="com.intellij.ide.util.TipDialog.0.0.1920.1080" x="1190" y="391" />
+    <location key="SettingsEditor.0.0.1920.1080" x="1023" y="184" />
+    <location key="deploy.picker.dialog.0.0.1920.1080" x="628" y="148" />
+    <location key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog.0.0.1920.1080" x="735" y="177" />
+    <location key="AndroidCreateResourceFileDialog.0.0.1920.1080" x="541" y="289" />
+    <location key="idPropertyDimension.0.0.1920.1080" x="777" y="457" />
+    <location key="#com.intellij.ide.util.MemberChooser.0.0.1920.1080" x="809" y="301" />
+    <location key="ide.config.custom.settings.0.0.1920.1080" x="371" y="303" />
+    <size key="FileChooserDialogImpl.0.0.1920.1080" width="398" height="396" />
+    <size key="SettingsEditor.0.0.1920.1080" width="884" height="538" />
+    <size key="deploy.picker.dialog.0.0.1920.1080" width="628" height="472" />
+    <size key="GridCell.Tab.0.left.0.0.1920.1080" width="0" height="0" />
+    <size key="GridCell.Tab.0.center.0.0.1920.1080" width="0" height="0" />
+    <size key="GridCell.Tab.0.right.0.0.1920.1080" width="0" height="0" />
+    <size key="GridCell.Tab.0.bottom.0.0.1920.1080" width="0" height="0" />
+    <size key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog.0.0.1920.1080" width="403" height="372" />
+    <size key="AndroidCreateResourceFileDialog.0.0.1920.1080" width="828" height="472" />
+    <size key="idPropertyDimension.0.0.1920.1080" width="355" height="136" />
+    <size key="#com.intellij.ide.util.MemberChooser.0.0.1920.1080" width="291" height="448" />
+    <size key="ide.config.custom.settings.0.0.1920.1080" width="1155" height="106" />
+  </component>
+</application>

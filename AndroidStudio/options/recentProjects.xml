@@ -1,0 +1,74 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/Development/Android/Projects/PushNotification" />
+        <option value="$USER_HOME$/Development/Android/Projects/PushNot" />
+        <option value="$USER_HOME$/Development/Android/Projects/TabFragmentExample" />
+        <option value="$USER_HOME$/Development/Android/Projects/OhMyCartoon" />
+        <option value="$USER_HOME$/AndroidStudioProjects/MyApplication" />
+      </list>
+    </option>
+    <option name="pid" value="" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/AndroidStudioProjects/MyApplication">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="AI-181.5540.7.32.5056338" />
+              <option name="productionCode" value="AI" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1553020339333" />
+              <option name="buildTimestamp" value="1539049466371" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Android/Projects/OhMyCartoon">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="AI-181.5540.7.32.5056338" />
+              <option name="productionCode" value="AI" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1555273885070" />
+              <option name="buildTimestamp" value="1539049492495" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Android/Projects/PushNot">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="AI-181.5540.7.32.5056338" />
+              <option name="productionCode" value="AI" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1561831286233" />
+              <option name="buildTimestamp" value="1539049493051" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Android/Projects/PushNotification">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="AI-181.5540.7.32.5056338" />
+              <option name="productionCode" value="AI" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1561843613365" />
+              <option name="buildTimestamp" value="1539049493051" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Android/Projects/TabFragmentExample">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="AI-181.5540.7.32.5056338" />
+              <option name="productionCode" value="AI" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1561830143669" />
+              <option name="buildTimestamp" value="1539049451000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/Development/Android/Projects" />
+  </component>
+</application>

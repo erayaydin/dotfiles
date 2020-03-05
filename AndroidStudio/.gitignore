@@ -1,0 +1,13 @@
+# Ignore user.token
+user.token
+
+# Ignore lock file
+port.lock
+
+# Ignore tasks
+/tasks
+
+# Ignore availables plugin
+/plugins/availables.xml
+/plugins/availables.xml.etag
+

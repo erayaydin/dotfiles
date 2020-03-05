@@ -1,0 +1,50 @@
+<application>
+  <component name="PropertiesComponent">
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.AUTO_HIDE" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.SPLIT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.AUTO_HIDE" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.SPLIT" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.AUTO_HIDE" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.LEFT" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.SPLIT" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.TOOL_ORDER" value="PALETTE,PROPERTIES,COMPONENT_TREE" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.Preview.PALETTE.AUTO_HIDE" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.Preview.PALETTE.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.Preview.PALETTE.SPLIT" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.Preview.TOOL_ORDER" value="PALETTE" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.COMPONENT_TREE.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.COMPONENT_TREE.SPLIT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.LEFT.UNSCALED.WIDTH" value="225" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.PALETTE.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.RIGHT.UNSCALED.WIDTH" value="333" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.TOOL_ORDER" value="PALETTE,PROPERTIES,COMPONENT_TREE" />
+    <property name="ATTACHED_TOOL_WINDOW.Preview.LEFT.UNSCALED.WIDTH" value="225" />
+    <property name="ATTACHED_TOOL_WINDOW.Preview.PALETTE.AUTO_HIDE" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.Preview.PALETTE.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.Preview.RIGHT.UNSCALED.WIDTH" value="225" />
+    <property name="ATTACHED_TOOL_WINDOW.Preview.TOOL_ORDER" value="PALETTE" />
+    <property name="AndroidInitConfigurator.V1" value="true" />
+    <property name="AndroidInitConfigurator.V3" value="true" />
+    <property name="AndroidInitConfigurator.V5" value="true" />
+    <property name="Default.savedEditorTheme" value="_@user_Default" />
+    <property name="LOG_FILTER_HISTORY" value="ServerConnection&#10;Secure&#10;MyActivity&#10;NotListenerService&#10;MainActivity" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MobileminApi" value="18" />
+    <property name="SAVED_COMPANY_DOMAIN" value="eray.yayd.in" />
+    <property name="android-component-compatibility-check" value="1561830415197" />
+    <property name="build.toolwindow.Build.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="build.toolwindow.Sync.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="decompiler.legal.notice.accepted" value="true" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/.config/AndroidStudio&#10;/home/eray/Development/Android/SDK&#10;/home/eray/Android/Sdk&#10;/data/Development/Android/SDK&#10;/data" />
+    <property name="file.gist.reindex.count" value="302" />
+    <property name="inspector.open.textAppearance" value="true" />
+    <property name="installed.kotlin.plugin.version" value="1.2.71-release-Studio3.2-1" />
+    <property name="kotlin.lastUpdateCheck" value="1564935048387" />
+    <property name="lastTip" value="1" />
+    <property name="newly.installed.api.level" value="28" />
+    <property name="properties.mode" value="INSPECTOR" />
+  </component>
+</application>
