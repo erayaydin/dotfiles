@@ -74,8 +74,6 @@ plugins=(
   extract
     # Gpg Agent Plugin (starts gpg-agent)
   gpg-agent
-    # Last Working Directory Plugin
-  last-working-dir
     # Passlib Plugin (completion)
   pass
     # Web Search Plugin
@@ -117,6 +115,7 @@ export PATH="${PATH}:/home/eray/Bin"
 export PATH="${PATH}:/opt/cuda/bin"
 export PATH="${PATH}:/home/eray/.local/bin"
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="$PATH:/home/eray/.local/share/npm/bin"
 
 # Source Eray's XDG Base Directory Support
 if [ -f $XDG_CONFIG_HOME/eray/xdg_base_directory_support.sh ]; then
