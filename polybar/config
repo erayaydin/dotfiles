@@ -123,12 +123,13 @@ battery-capacity-2 = 
 battery-capacity-2-foreground =
 battery-capacity-3 = 
 battery-capacity-3-foreground = 
-battery-capacity-4 = 
+battery-capacity-4 =  
 battery-capacity-4-foreground =
 battery-charging-0 = 
 battery-charging-1 = 
 battery-charging-2 = 
-battery-charging-3 = 
+battery-charging-3 = 
+# 
 battery-charging-4 = 
 
 # Temperature
@@ -183,6 +184,7 @@ line-size = 0
 border-bottom-size = 1
 border-bottom-color = ${colors.bar-top-border}
 
+padding-top = 2
 padding-left = 0
 padding-right = 2
 
