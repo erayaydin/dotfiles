@@ -144,7 +144,7 @@ hide_edge_borders both
 # Firefox:  $mod+i      #
 # DMenu:    $mod+d      #
 #########################
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+t exec xterm
 bindsym $mod+c exec chromium
 bindsym $mod+i exec firefox
@@ -358,7 +358,7 @@ mode "power" {
 # twmnd   - twmn notification daemon               #
 # aarchup - Arch Linux update checker (uncomment)  #
 ####################################################
-exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpapers/*
+exec --no-startup-id wallpaper
 exec --no-startup-id nm-applet
-exec --no-startup-id compton --config ~/.config/compton.conf
+exec --no-startup-id picom --config ~/.config/picom.conf
 exec_always --no-startup-id ~/.config/polybar/launch.sh
