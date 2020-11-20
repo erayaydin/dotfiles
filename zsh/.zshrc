@@ -109,7 +109,10 @@ export PASSWORD_STORE_GIT=$XDG_DATA_HOME/pass
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 # Android SDK
 export ANDROID_SDK_HOME="$HOME/Development/Android/SDK"
-
+# Task Warrior
+TASK_CONFIG_DIRECTORY=$XDG_CONFIG_HOME/taskwarrior
+[ -d $TASK_CONFIG_DIRECTORY ] || mkdir $TASK_CONFIG_DIRECTORY
+export TASKRC=$TASK_CONFIG_DIRECTORY/taskrc
 # Binary Paths
 export PATH="${PATH}:/home/eray/Bin"
 export PATH="${PATH}:/opt/cuda/bin"
