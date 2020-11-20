@@ -1,5 +1,5 @@
 ! Color Scheme
-#include "colorschemes/default"
+#include "colorschemes/horde"
 
 ! Program Specific Files
 #include "programs/urxvt"
